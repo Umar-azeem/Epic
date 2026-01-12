@@ -1,0 +1,15 @@
+{
+  "menu": {
+    "achievements": "My Achievements",
+    "balance": "Account Balance",
+    "rewards": "Epic Rewards",
+    "gifts": "Gifts",
+    "coupons": "Coupons",
+    "accounts": "Accounts",
+    "redeemCode": "Redeem Code",
+    "redeemGiftCard": "Redeem Fortnite Gift Card",
+    "wishlist": "Wishlist",
+    "support": "Support",
+    "logout": "Logout"
+  }
+}
