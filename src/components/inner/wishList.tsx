@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { Mail, ExternalLink } from "lucide-react";
-import { Button } from "./ui/button";
-import { Label } from "./ui/label";
-import { Switch } from "./ui/switch";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { Switch } from "../ui/switch";
 
 export default function Wishlist() {
   const [isSubscribed, setIsSubscribed] = useState(true);
@@ -32,7 +32,7 @@ export default function Wishlist() {
         <div className="mt-6">
           <div className="flex items-center justify-between bg-[#1a1a1a] border-l-4 border-blue-500 px-6 py-4 rounded">
             <div className="flex items-center gap-3">
-              <Mail className="text-blue-400" size={20}/>
+              <Mail className="text-blue-400" size={20} />
               <span className="text-sm">
                 You are subscribed to wishlist email notifications.{" "}
                 <a
@@ -63,9 +63,7 @@ export default function Wishlist() {
             <br />
             your wishlist yet.
           </h2>
-          <Button
-            className=" flex-1 h-10 bg-sky-400 text-sm font-medium  hover:bg-sky-500 text-black rounded-md"
-          >
+          <Button className=" flex-1 h-10 bg-sky-400 text-sm font-medium  hover:bg-sky-500 text-black rounded-md">
             Shop for Games & Apps
           </Button>
         </div>

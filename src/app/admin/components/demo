@@ -1,0 +1,110 @@
+// const gamesArray = Array.isArray(data?.games)
+//     ? data.games.filter((item) => {
+//         console.log("item", item);
+
+//         const normalizedLabel = label?.toLowerCase();
+//         const itemLabel = item.label?.toLowerCase();
+//         const matchesSection = itemLabel === normalizedLabel;
+
+//         if (normalizedLabel === "discover something new") {
+//           const createdAt = new Date(item.createdAt);
+//           return matchesSection && createdAt >= twoMonthsAgo;
+//         }
+
+//         if (normalizedLabel === "season sale spotlight") {
+//           return matchesSection && item.discount > 0;
+//         }
+
+//         if (normalizedLabel === "top new releases") {
+//           const createdAt = new Date(item.createdAt);
+//           return matchesSection && createdAt >= tenDaysAgo;
+//         }
+//         if (normalizedLabel === "Early Access") {
+//           const createdAt = new Date(item.createdAt);
+//           return matchesSection && createdAt >= nextTenDays;
+//         }
+      
+//         return matchesSection;
+//       })
+//     : [];
+
+
+//  const genres = [
+//     {
+//       id: 1,
+//       title: "Action Games",
+//       images: [
+//         "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=200&h=200&fit=crop",
+//       ],
+//     },
+//     {
+//       id: 2,
+//       title: "Action-Adventure Games",
+//       images: [
+//         "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=200&h=200&fit=crop",
+//       ],
+//     },
+//     {
+//       id: 3,
+//       title: "Adventure Games",
+//       images: [
+//         "https://images.unsplash.com/photo-1614465486936-7e163f964dbb?w=200&h=200&fit=crop",
+//       ],
+//     },
+//     {
+//       id: 4,
+//       title: "Casual Games",
+//       images: [
+//         "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&h=200&fit=crop",
+//       ],
+//     },
+//   ];
+
+//   const game = [
+//     {
+//       id: 1,
+//       title: "Ghost Hunters Collector's Edition",
+//       subtitle: "Base Game",
+//       image:
+//         "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
+//     },
+//     {
+//       id: 2,
+//       title: "VAPORUM",
+//       subtitle: "LOCKDOWN",
+//       image:
+//         "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop",
+//     },
+//     {
+//       id: 3,
+//       title: "VAPORUM",
+//       subtitle: "STEAMPUNK DUNGEON CRAWLER",
+//       image:
+//         "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop",
+//     },
+//     {
+//       id: 4,
+//       title: "VAPORUM",
+//       subtitle: "LOCKDOWN",
+//       image:
+//         "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop",
+//     },
+//     {
+//       id: 5,
+//       title: "VAPORUM",
+//       subtitle: "STEAMPUNK DUNGEON CRAWLER",
+//       image:
+//         "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop",
+//     },
+//     {
+//       id: 6,
+//       title: "Game Feature",
+//       image:
+//         "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=300&fit=crop",
+//       overlayItems: [
+//         { icon: "🛡️", text: "No Shields" },
+//         { icon: "⚡", text: "Triple Jump", color: "bg-lime-400" },
+//         { icon: "⚡", text: "Game Speed", color: "bg-yellow-400" },
+//       ],
+//     },
+//   ];

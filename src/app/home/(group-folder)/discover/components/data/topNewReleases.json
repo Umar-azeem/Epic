@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "category": "Base Game",
+    "title": "ARC Raiders",
+     "image": "/img/gloomy-eyes.png",
+    "price": 39.99,
+    "trialAvailable": false
+  },
+  {
+    "id": 2,
+    "category": "Base Game",
+          "image": "/img/gloomy-eyes.png",
+
+    "title": "EA SPORTS FC™ 26 Standard Edition",
+    "price": 69.99,
+    "trialAvailable": true
+  },
+  {
+    "id": 3,
+    "category": "Base Game",
+          "image": "/img/gloomy-eyes.png",
+
+    "title": "Football Manager 26",
+    "price": 39.99,
+    "trialAvailable": false
+  },
+  {
+    "id": 4,
+    "category": "Base Game",
+    "title": "Battlefield™ 6",
+          "image": "/img/gloomy-eyes.png",
+
+    "price": 69.99,
+    "trialAvailable": false
+  },
+  {
+    "id": 5,
+    "category": "Base Game",
+    "title": "Ready or Not",
+          "image": "/img/gloomy-eyes.png",
+
+    "price": 23.29,
+    "trialAvailable": false
+  }
+]

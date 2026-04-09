@@ -1,0 +1,50 @@
+[
+  {
+    "q": "Why should I distribute my game on the Epic Games Store?",
+    "a": "The Epic Games Store has a global audience of over 295M+ users, a standard 100%/0% revenue share up to your first $1M in net revenue per product per year, and 88% / 12% after that. Games built on Unreal Engine have engine royalty fees waived for in-store purchases using Epic's payment system."
+  },
+  {
+    "q": "My game is built with Unity or another engine, can I bring it to the Epic Games Store?",
+    "a": "Yes, the Epic Games Store is engine-agnostic. Epic welcomes great games regardless of the engine used."
+  },
+  {
+    "q": "What are the Epic Games Store self-service publishing tools?",
+    "a": "They are a suite of tools in the Epic Developer Portal that allow developers to set up game pages, pricing, offers, builds, and updates on the Epic Games Store."
+  },
+  {
+    "q": "What is the Epic Developer Portal?",
+    "a": "The Developer Portal is the central hub for distributing games on the Epic Games Store and enhancing them with Epic Online Services. It allows developers to manage product information, backend services, player support, and financial and usage reports."
+  },
+  {
+    "q": "What other developer tools does Epic offer?",
+    "a": "Epic provides an ecosystem including Unreal Engine, Epic Online Services, Kids Web Services, Twinmotion, MetaHuman, Quixel, Capturing Reality, and the Epic Developer Community."
+  },
+  {
+    "q": "How do I distribute games on the Epic Games Store?",
+    "a": "Create or log in to your account at dev.epicgames.com/portal. The sign-up wizard guides company registration and game setup. A recoupable $100 USD submission fee per game is required before release."
+  },
+  {
+    "q": "Are there any requirements for a game to launch on the Store?",
+    "a": "Games must follow content guidelines, run as described, support PC crossplay for multiplayer titles, and enable Epic Games Store achievements if achievements exist on other PC stores."
+  },
+  {
+    "q": "What agreements do I need to accept?",
+    "a": "You must have an Epic Games Store account and accept the Epic Games Store Distribution Agreement."
+  },
+  {
+    "q": "How are games ranked on the Epic Games Store?",
+    "a": "Epic provides transparency around ranking practices, data access policies, and EU Platform-to-Business regulation compliance."
+  },
+  {
+    "q": "Is there any prohibited content?",
+    "a": "Games containing hateful, discriminatory, pornographic, illegal content, IP infringement, scams, or malware are prohibited and may be removed after review."
+  },
+  {
+    "q": "Does the Epic Games Store support regional pricing?",
+    "a": "Yes, Epic supports regional pricing and provides suggested regional discounts based on local market norms."
+  },
+  {
+    "q": "How do refunds work on the Epic Games Store?",
+    "a": "Refundable products can be refunded based on Epic's refund policy. Virtual currency, consumables, and most in-app purchases are non-refundable."
+  }
+]

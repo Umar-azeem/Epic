@@ -1,11 +1,23 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-import { Map, Store } from "@/src/components/icons/index";
+import {
+  CreditCard,
+  Gift,
+  GiftCard,
+  Logout,
+  Map,
+  Ques,
+  Star,
+  Store,
+  Trophy,
+  User,
+  V,
+  Wallet,
+  Wishlist,
+} from "@/src/components/icons/indexs";
 import { useTranslation } from "react-i18next";
-
 // In your component
-
 import { useIsMobile } from "./../hooks/use-mobile";
 import {
   NavigationMenu,
@@ -20,7 +32,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubTrigger,
@@ -28,7 +39,8 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { Button } from "./ui/button";
 import Epic from "./epic";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import TopBarCmpt from "./topBarCmpt";
 
 const username = "umar4436";
 const profileImage = "";
@@ -47,35 +59,40 @@ const languages = [
   { code: "nl", name: "Nederlands" },
   { code: "no", name: "Norsk" },
 ];
-// const changeLanguage = (languageCode: string) => {
-//   setCurrentLanguage(languageCode);
-//   localStorage.setItem('preferredLanguage', languageCode);
-// };
+
 export default function Topber() {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   const isMobile = useIsMobile();
   const { t } = useTranslation();
   return (
     <>
       <NavigationMenu viewport={isMobile}>
-        <NavigationMenuList className="flex-wrap font-sans flex justify-between bg-app px-5  py-2 w-screen  rounded-b-lg overflow-hidden">
-          <div className="flex justify-center gap-5 items-center text-white ">
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="">
-                <Image
-                  src="/assets/icons/lll.jpg"
-                  alt="Logo"
-                  width={100}
-                  height={100}
-                  className="w-[25px] h-7 bg-white rounded-xs"
-                />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className=" md:border md:border-[#3a3a3a] bg-app border-red-900  md:rounded-lg p-0  shadow-xl">
-                <h1 className="text-white font-bold text-3xl  w-full flex px-4 py-3 md:hidden">
-                  Epic Games
-                </h1>
-                <Epic />
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+        <NavigationMenuList className="flex-wrap font-sans flex justify-between bg-app px-3  py-2 w-[96vw] md:w-[98vw] rounded-b-lg relative z-100">
+          <div className="flex justify-center gap-4 items-center text-white  relative">
+            {menuOpen !== true && (
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="">
+                  <Image
+                    src="/assets/icons/lll.jpg"
+                    alt="Logo"
+                    width={100}
+                    height={100}
+                    className="w-[25px] h-[29px] bg-white rounded-xs"
+                  />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className=" md:border md:border-[#3a3a3a] bg-app border-red-900  md:rounded-lg p-0 0  shadow-xl">
+                  <h1 className="text-white font-bold text-3xl  w-full flex px-4 py-3 md:hidden">
+                    Epic Games
+                  </h1>
+                  <Epic />
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            )}
             <NavigationMenuItem>
               <Link href="/" className="text-white">
                 <Store className="w-14 h-14 " />
@@ -83,7 +100,7 @@ export default function Topber() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="no-chevron hidden md:flex">
-                <Link href="/support" className="text-white text-[15px]">
+                <Link href="/support" className="text-white text-[15px] pl-1">
                   Support
                 </Link>
               </NavigationMenuTrigger>
@@ -99,21 +116,20 @@ export default function Topber() {
                     <ul className="space-y-1 ">
                       <li>
                         <a
-                          href="#"
-                          className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors"
+                          href="/home/onEpicGamesStore"
+                          className="flex items-center px-3 py-2 text-[15px] hover:bg-[#3a3a3a] rounded = transition-colors"
                         >
                           Distribute on Epic Games Store
                         </a>
                       </li>
                       <li>
                         <a
-                          href="#"
-                          className="flex items-center  px-3 py-2 text-[15px]    hover:bg-[#3a3a3a] rounded  transition-colors"
+                          href="/developerForum"
+                          className="flex items-center  px-3 py-2 text-[15px] hover:bg-[#3a3a3a] rounded  transition-colors"
                         >
                           Developer forums
                         </a>
                       </li>
-
                       <li>
                         <a
                           href="#"
@@ -138,19 +154,19 @@ export default function Topber() {
             </NavigationMenuItem>
           </div>
 
-          <div className="hidden md:flex mr-3 relative ">
+          <div className="hidden md:flex  relative ">
             <DropdownMenu>
               <DropdownMenuTrigger>
-                <Map className="w-6 h-6 text-white" />
+                <Map className="w-6 h-6 text-white  mr-1" />
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="w-64 absolute -right-5 z-10 bg-[#292D2F]/85 backdrop-blur-md px-4 py-3 font-medium  text-white rounded-lg shadow-xl text-md space-y-3 max-h-[420px ] overflow-y-auto "
+                className="w-64 absolute -right-5  z-10 bg-[#292D2F]/85 backdrop-blur-md px-4 py-3 font-medium  text-white rounded-lg shadow-xl text-md space-y-3 max-h-[420px ] overflow-y-auto "
                 align="start"
               >
                 {languages.map((language) => (
                   <DropdownMenuItem
                     key={language.code}
-                    className="menu-item py-1.5  cursor-pointer  hover:bg-[#3a3a3a]  outline-transparent transition-colors" // onClick={() => changeLanguage(language.code)}
+                    className="menu-item py-1.5  rounded-sm cursor-pointer  hover:bg-[#3a3a3a]  outline-transparent transition-colors" // onClick={() => changeLanguage(language.code)}
                   >
                     {language.name}
                   </DropdownMenuItem>
@@ -187,62 +203,87 @@ export default function Topber() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="w-64 absolute -right-5 z-10 bg-[#292D2F]/85 backdrop-blur-md px-4 py-2 space-y-2 font-medium  text-white rounded-lg p-1  shadow-xl  text-md "
+                className="w-64 absolute -right-5 z-10 bg-[#292D2F]/85 backdrop-blur-md px-2 py-2 space-y-1 font-medium  text-white rounded-lg p-1  shadow-xl  text-md "
                 align="start"
               >
-                <DropdownMenuItem className="flex items-center  px-3 py-2 border-none  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                <p className="font-mono text-xs font-medium text-text-clr-light py-2">
+                  store
+                </p>
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2 border-none  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
                   {" "}
-                  My Achievements
+                  <Trophy className="w-5 h-5" /> My Achievements
                 </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
                   {" "}
-                  Account Balance
+                  <Star className="w-4 h-4" /> Epic Rewards
                 </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
                   {" "}
-                  Epic Rewards
-                </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  Gifts
-                </DropdownMenuItem>
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                    Coupons
-                  </DropdownMenuSubTrigger>
-                </DropdownMenuSub>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  Accounts
-                </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  Redeem code
-                </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  redeem fortnite gift card
+                  <Wallet className="w-4 h-4" /> Account Balance
                 </DropdownMenuItem>
 
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  Wishlist
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <Gift className="w-4 h-4" /> Gifts
+                </DropdownMenuItem>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                    <V className="w-4 h-4" /> Coupons
+                  </DropdownMenuSubTrigger>
+                </DropdownMenuSub>
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <Link
+                    href="/admin"
+                    className="text-white text-[15px] pl-1 flex items-center gap-2"
+                  >
+                    <User className="w-4 h-4" /> Accounts
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="flex  gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <CreditCard className="w-4 h-4" /> Redeem code
+                </DropdownMenuItem>
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <GiftCard className="w-4 h-4" /> Redeem Fortnite Gift Card
+                </DropdownMenuItem>
+
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <Wishlist className="w-4 h-4" /> Wishlist
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  support
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <Ques className="w-4 h-4" /> support
                 </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  Logout Page
+                <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
+                  <Logout className="w-4 h-4" /> Logout Page
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <NavigationMenuItem className="text-samibold flex justify-center items-center">
               <Link
-                href="#"
-                className="bg-btn-primary hover:bg-btn-primary/75 hover:shadow-md transition-all duration-200 font-semibold px-3 py-1.5 text-sm rounded-sm"
+                href="/"
+                className="bg-btn-primary hover:bg-btn-primary/75 hover:shadow-md transition-all duration-200 font-semibold px-3 py-1.5 text-[14px] rounded-sm"
               >
-                {" "}
                 Download
               </Link>
             </NavigationMenuItem>
           </div>
-          <X className="text-gray-400 md:hidden flex w-6 h-6" />
+          <button
+            onClick={handleMenuToggle}
+            className="text-gray-400 md:hidden flex w-6 h-6"
+          >
+            {menuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+          {menuOpen !== false && (
+            <div className="absolute h-screen  top-18 w-screen justify-centter">
+              <TopBarCmpt
+                menuOpen={menuOpen}
+                handleMenuToggle={handleMenuToggle}
+              />
+            </div>
+          )}
         </NavigationMenuList>
       </NavigationMenu>
     </>

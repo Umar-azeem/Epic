@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 import { CardDescription, CardHeader, CardTitle } from "../ui/card";
-import { Cart, Gift, Report, Share, Star, Wishlist } from "../icons";
+import { Cart, Gift, Report, Share, Star, Wishlist } from "../icons/indexs";
 
 function OverView() {
   const [activeImage, setActiveImage] = React.useState(0);
@@ -73,29 +73,29 @@ function OverView() {
 
   const prevImage = () => {
     setActiveImage(
-      (prev) => (prev - 1 + screenshots.length) % screenshots.length
+      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
     );
   };
 
   return (
     <>
       <main className="w-full max-w-screen mx-auto ">
-        <div className="grid lg:grid-cols-3 border-b border-text-clr items-start gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-8">
+        <div className="grid  lg:grid-cols-3 items-start gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-8">
           {/* Left */}
-          <div className="lg:col-span-2 space-y-3 sm:space-y-4">
-            <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden group">
+          <div className="lg:col-span-2 space-y-3 sm:space-y-4 p-4 md:p-0">
+            <div className="relative aspect-video  bg-gray-900 rounded-lg overflow-hidden group">
               <Image
                 src={screenshots[activeImage]}
                 width={40}
                 height={40}
                 alt="Game screenshot"
-                className="w-full h-full object-cover"
+                className="w-full h-full  object-cover"
               />
 
               {/* Navigation Arrows */}
               <button
                 onClick={prevImage}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute left-2   sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
@@ -137,156 +137,157 @@ function OverView() {
                 </button>
               ))}
             </div>
- <div className="md:hidden flex flex-col gap-6 justify-center items-center">
-            
-            <Card className="w-full text-white flex p-0 flex-row max-w-sm bg-app-secondary border border-text-clr/60">
-              <div className="w-full flex p-3">
-                {" "}
-                <Image
-                  src={"/img/7+.png"}
-                  width={100}
-                  height={100}
-                  alt="Game screenshot"
-                  className="w-14 h-14 object-cover "
-                />
-                <CardHeader className="w-full p-2">
-                  <CardTitle className="">7+</CardTitle>
-                  <CardDescription>Fear, Mild Violence </CardDescription>
-                </CardHeader>
-              </div>
-            </Card>
+            <div className="md:hidden flex flex-col gap-6 justify-center items-center">
+              <Card className="w-full text-white flex p-0 flex-row max-w-sm bg-app-secondary border border-text-clr/60">
+                <div className="w-full flex p-3">
+                  {" "}
+                  <Image
+                    src={"/img/7+.png"}
+                    width={100}
+                    height={100}
+                    alt="Game screenshot"
+                    className="w-14 h-14 object-cover "
+                  />
+                  <CardHeader className="w-full p-2">
+                    <CardTitle className="">7+</CardTitle>
+                    <CardDescription>Fear, Mild Violence </CardDescription>
+                  </CardHeader>
+                </div>
+              </Card>
 
-            
-
-            <div className="w-full max-w-sm bg-app-secondary rounded-lg p-0 md:p-4 space-y-3 text-sm  font-sans ">
-             <div className="w-full">
-              <h5 className="text-xs p-0.5 w-24 text-center rounded-xs sm:text-sm lg:text-md font-medium text-white bg-btn-secondary mb-2">
-                Base Game
-              </h5>
-              <span className="font-semibold text-white text-sm">$14.99</span>
-            </div>
-              <div className="flex w-full gap-2">
-                {/* Buy Now Button */}
-                <Button
-                  className=" flex-1 h-10 bg-sky-400 text-sm font-medium  hover:bg-sky-500 text-black rounded-md
-        "
-                >
-                  Buy Now
-                </Button>
-
-                <Button
-                  className=" h-10 p-0  w-14 bg-btn-secondary  text-white rounded-md flex items-center justify-center
-        "
-                >
-                  <Cart className="w-6 h-6" />
-                </Button>
-              </div>
-
-              <Button
-                variant="outline"
-                className="w-full hover:text-white bg-btn-secondary  border-0 hover:bg-[#4a4a4d] text-white text-xs  font-semibold py-5 rounded-md relative"
-              >
-                <Gift className="w-5 h-5" />
-                Gift
-                <Badge className="absolute right-3 bg-btn-primary/20 text-btn-primary text-xs px-2 py-0.2">
-                  New!
-                </Badge>
-              </Button>
-
-              <Button
-                variant="outline"
-                className="w-full hover:text-white bg-btn-secondary border-0 hover:bg-[#4a4a4d] text-white  py-5 rounded-md text-xs  font-semibold"
-              >
-                <Wishlist className="w-5 h-5 " />
-                Wishlist
-              </Button>
-              <div className="flex items-center justify-between pt-2 ">
-                <span className="text-text-clr-light text-sm">
-                  Epic Rewards
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-white text-sm font-semibold">
-                    Earn 20% Back
+              <div className="w-full max-w-sm bg-app-secondary rounded-lg p-0 md:p-4 space-y-3 text-sm  font-sans ">
+                <div className="w-full">
+                  <h5 className="text-xs p-0.5 w-24 text-center rounded-xs sm:text-sm lg:text-md font-medium text-white bg-btn-secondary mb-2">
+                    Base Game
+                  </h5>
+                  <span className="font-semibold text-white text-sm">
+                    $14.99
                   </span>
-                  <Star className="w-4 h-4 text-[#0078f2]" />
                 </div>
-              </div>
-
-              <div className="border-t border-text-clr/70 " />
-
-              <div className="flex text-clr  items-center justify-between ">
-                <span className="text-text-clr-light text-sm">Refund Type</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-white text-sm">Self-Refundable</span>
-                  <Info className="w-4 h-4 text-white" />
-                </div>
-              </div>
-
-              <div className="border-t border-text-clr/70 " />
-
-              <div className="flex justify-between  gap-6 ">
-                <div className="text-text-clr-light text-sm ">Developer</div>
-                <div className="text-white text-xs ">
-                  Atlas V, Be Revolution Gaming, 3Dar, Fishing Cactus, ARTE
-                  France
-                </div>
-              </div>
-              <div className="border-t border-text-clr/70 " />
-
-              <div className="flex justify-between  gap-6 ">
-                <div className="text-text-clr-light text-sm ">Publisher</div>
-                <div className="text-white text-xs ">
-                  ARTE France, Untold Tales
-                </div>
-              </div>
-              <div className="border-t border-text-clr/70 " />
-
-              <div className="flex items-center justify-between ">
-                <span className="text-text-clr-light text-sm">
-                  Release Date
-                </span>
-                <span className="text-white text-sm">09/12/25</span>
-              </div>
-              <div className="border-t border-text-clr/70 " />
-              <div className="flex items-center justify-between ">
-                <span className="text-text-clr-light text-sm">Platform</span>
-                <div className="flex items-center gap-1">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+                <div className="flex w-full gap-2">
+                  {/* Buy Now Button */}
+                  <Button
+                    className=" flex-1 h-10 bg-sky-400 text-sm font-medium  hover:bg-sky-500 text-black rounded-md
+        "
                   >
-                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
-                  </svg>
+                    Buy Now
+                  </Button>
+
+                  <Button
+                    className=" h-10 p-0  w-14 bg-btn-secondary  text-white rounded-md flex items-center justify-center
+        "
+                  >
+                    <Cart className="w-6 h-6" />
+                  </Button>
+                </div>
+
+                <Button
+                  variant="outline"
+                  className="w-full hover:text-white bg-btn-secondary  border-0 hover:bg-[#4a4a4d] text-white text-xs  font-semibold py-5 rounded-md relative"
+                >
+                  <Gift className="w-5 h-5" />
+                  Gift
+                  <Badge className="absolute right-3 bg-btn-primary/20 text-btn-primary text-xs px-2 py-0.2">
+                    New!
+                  </Badge>
+                </Button>
+
+                <Button
+                  variant="outline"
+                  className="w-full hover:text-white bg-btn-secondary border-0 hover:bg-[#4a4a4d] text-white  py-5 rounded-md text-xs  font-semibold"
+                >
+                  <Wishlist className="w-5 h-5 " />
+                  Wishlist
+                </Button>
+                <div className="flex items-center justify-between pt-2 ">
+                  <span className="text-text-clr-light text-sm">
+                    Epic Rewards
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-white text-sm font-semibold">
+                      Earn 20% Back
+                    </span>
+                    <Star className="w-4 h-4 text-[#0078f2]" />
+                  </div>
+                </div>
+
+                <div className="border-t border-text-clr/70 " />
+
+                <div className="flex text-clr  items-center justify-between ">
+                  <span className="text-text-clr-light text-sm">
+                    Refund Type
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-white text-sm">Self-Refundable</span>
+                    <Info className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+
+                <div className="border-t border-text-clr/70 " />
+
+                <div className="flex justify-between  gap-6 ">
+                  <div className="text-text-clr-light text-sm ">Developer</div>
+                  <div className="text-white text-xs ">
+                    Atlas V, Be Revolution Gaming, 3Dar, Fishing Cactus, ARTE
+                    France
+                  </div>
+                </div>
+                <div className="border-t border-text-clr/70 " />
+
+                <div className="flex justify-between  gap-6 ">
+                  <div className="text-text-clr-light text-sm ">Publisher</div>
+                  <div className="text-white text-xs ">
+                    ARTE France, Untold Tales
+                  </div>
+                </div>
+                <div className="border-t border-text-clr/70 " />
+
+                <div className="flex items-center justify-between ">
+                  <span className="text-text-clr-light text-sm">
+                    Release Date
+                  </span>
+                  <span className="text-white text-sm">09/12/25</span>
+                </div>
+                <div className="border-t border-text-clr/70 " />
+                <div className="flex items-center justify-between ">
+                  <span className="text-text-clr-light text-sm">Platform</span>
+                  <div className="flex items-center gap-1">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="border-t border-text-clr/70 " />
+
+                <button className="w-full flex items-center justify-between py-3 text-white text-sm hover:text-gray-300 transition-colors">
+                  <span>See All Editions and Add-Ons</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                <div className="flex flex-row justify-between w-full ">
+                  {" "}
+                  <Button
+                    variant="outline"
+                    className=" w-[139px] bg-btn-secondary h-7 border-0 hover:text-white hover:bg-[#4a4a4d] text-white text-xs  font-semibold  rounded-md relative"
+                  >
+                    <Share className="w-4 h-4" />
+                    Share
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-[139px] bg-btn-secondary h-7 border-0 hover:text-white hover:bg-[#4a4a4d] text-white  p-0 rounded-md text-xs  font-medium"
+                  >
+                    <Report className="w-4 h-4 " />
+                    Report
+                  </Button>
                 </div>
               </div>
-              <div className="border-t border-text-clr/70 " />
 
-              <button className="w-full flex items-center justify-between py-3 text-white text-sm hover:text-gray-300 transition-colors">
-                <span>See All Editions and Add-Ons</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <div className="flex flex-row justify-between w-full ">
-                {" "}
-                <Button
-                  variant="outline"
-                  className=" w-[139px] bg-btn-secondary h-7 border-0 hover:text-white hover:bg-[#4a4a4d] text-white text-xs  font-semibold  rounded-md relative"
-                >
-                  <Share className="w-4 h-4" />
-                  Share
-                </Button>
-                <Button
-                  variant="outline"
-                  className="w-[139px] bg-btn-secondary h-7 border-0 hover:text-white hover:bg-[#4a4a4d] text-white  p-0 rounded-md text-xs  font-medium"
-                >
-                  <Report className="w-4 h-4 " />
-                  Report
-                </Button>
-              </div>
+              {/* Features */}
             </div>
-
-            {/* Features */}
-          </div>
             <div className="sm:hidden flex justify-center gap-2">
               {screenshots.map((_, idx) => (
                 <button
@@ -448,42 +449,41 @@ function OverView() {
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-  {achievements.map((achievement) => (
-    <Card
-      key={achievement.id}
-      className="border-0 bg-transparent rounded-none transition-colors cursor-pointer"
-    >
-      <CardContent className="p-0">
-        <div className="flex flex-col items-center text-center space-y-3">
-          <div className="w-12 h-12 md:w-20 md:h-20 bg-[#1a1a1d] rounded flex items-center justify-center">
-            <svg
-              className="w-6 h-6 md:w-7 md:h-7 text-gray-600"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-            </svg>
-          </div>
+                  {achievements.map((achievement) => (
+                    <Card
+                      key={achievement.id}
+                      className="border-0 bg-transparent rounded-none transition-colors cursor-pointer"
+                    >
+                      <CardContent className="p-0">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-12 h-12 md:w-20 md:h-20 bg-[#1a1a1d] rounded flex items-center justify-center">
+                            <svg
+                              className="w-6 h-6 md:w-7 md:h-7 text-gray-600"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                            </svg>
+                          </div>
 
-          {/* Text */}
-          <div className="w-full">
-            <h3 className="text-white font-medium text-sm truncate">
-              {achievement.name}
-            </h3>
+                          {/* Text */}
+                          <div className="w-full">
+                            <h3 className="text-white font-medium text-sm truncate">
+                              {achievement.name}
+                            </h3>
 
-            <div className="flex justify-center items-center gap-2 text-xs mt-1">
-              <span className="text-gray-500 font-medium">
-                {achievement.xp} XP
-              </span>
-              <span className="text-gray-600">•</span>
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  ))}
-</div>
-
+                            <div className="flex justify-center items-center gap-2 text-xs mt-1">
+                              <span className="text-gray-500 font-medium">
+                                {achievement.xp} XP
+                              </span>
+                              <span className="text-gray-600">•</span>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </section>
 
@@ -557,7 +557,7 @@ function OverView() {
               Gloomy Eyes System Requirements{" "}
             </h1>
 
-            <section className="max-w-3xl w-full flex lg:mb-10 flex-col space-y-3 sm:space-y-4 justify-start items-start px-3 sm:px-0 sm:mb-12">
+            <section className="max-w-3xl w-full flex lg:mb-10 flex-col space-y-3 sm:space-y-4 justify-start items-start px-3 sm:px-0 sm:mb-12 ">
               <div className="bg-[#1a1a1d] border border-gray-800 rounded-lg p-6">
                 {/* Windows Tab */}
                 <div className="border-b border-gray-800 mb-6">
@@ -664,7 +664,7 @@ function OverView() {
           </div>
 
           {/* Right */}
-          <div className="hidden  md:flex flex-col gap-6 justify-center items-center">
+          <div className="hidden  md:flex flex-col gap-6 justify-center items-center ">
             <Image
               src={"/img/gloomy.avif"}
               width={100}
@@ -820,10 +820,6 @@ function OverView() {
             {/* Features */}
           </div>
         </div>
-        <h5 className="text-white text-xs">
-          * The lowest price offered on The Epic Games Store in the last 30 days
-          before discount
-        </h5>
       </main>
     </>
   );

@@ -14,8 +14,8 @@ export default function AddToCart() {
 
   return (
     <>
-      <main className="max-w-5xl mx-auto ">
-        <div className="border-b border-gray-800">
+      <main className="max-w-5xl mx-auto bg-app ">
+        <div className="">
           <nav className="flex gap-8 -mb-px">
             {tabs.map((tab) => (
               <button
@@ -45,7 +45,7 @@ export default function AddToCart() {
 
             {activeTab === "add-ons" && (
               <>
-                <AddOne />
+                <AddOne/>
               </>
             )}
 
@@ -53,7 +53,14 @@ export default function AddToCart() {
               <Achievements />
             </>}
           </div>
+
         </div>
+        <div className="border-t border-text-clr  w-full text-white flex py-10 bg-app-secondary"> <h5 className="text-white text-xs">
+          * The lowest price offered on The Epic Games Store in the last 30 days
+          before discount
+        </h5></div>
+        
+        
       </main>
     </>
   );

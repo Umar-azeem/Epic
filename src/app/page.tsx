@@ -1,9 +1,15 @@
-import React from 'react'
-import AddToCart from '../components/addToCart'
+"use client";
+
+import { redirect } from "next/navigation";
+import Discover from "./home/(group-folder)/inner/discover";
 
 function Page() {
-  return (
-    <div><AddToCart /></div>
-  )
+  redirect("/home");
+  // return (
+  //   <div className="max-w-5xl h-auto mx-auto text-white">
+  //     {/* <Discover /> */}
+  //     home page
+  //   </div>
+  // );
 }
-export default Page
+export default Page;

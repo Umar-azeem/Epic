@@ -1,18 +1,6 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "../components/header";
-import Footer from "../components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Metadata } from "next";
+import PathAwareWrapper from "../components/PathAwareWrapper";
 
 export const metadata: Metadata = {
   title: "Epic Game",
@@ -24,15 +12,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-app-secondary antialiased`}
-      >
-        <Header />
-        <main>{children}</main>
-        <Footer/>
+      <body className="bg-app-secondary ">
+        <PathAwareWrapper>{children}</PathAwareWrapper>
+       
       </body>
     </html>
   );
 }
+ 

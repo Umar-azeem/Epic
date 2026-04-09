@@ -1,3 +1,4 @@
+import { ClapperboardIcon } from "lucide-react";
 import React from "react";
 
 interface IconProps {
@@ -407,7 +408,6 @@ export const Report: React.FC<IconProps> = ({ className = "" }) => (
   </svg>
 );
 
-
 export const Gift: React.FC<IconProps> = ({ className = "" }) => (
   <svg
     aria-hidden="true"
@@ -442,6 +442,157 @@ export const Wishlist: React.FC<IconProps> = ({ className = "" }) => (
     ></path>
   </svg>
 );
-// export const Cart: React.FC<IconProps> = ({ className = "" }) => (
+export const Trophy: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M7 4V2h10v2h3a1 1 0 0 1 1 1c0 3.866-2.239 6-6 6-.897 1.72-2.623 2.914-4.5 3.212V17h3v2H9v-2h3v-2.788C10.123 13.914 8.397 12.72 7.5 11 3.739 11 1.5 8.866 1.5 5a1 1 0 0 1 1-1H7Zm-3.394 2c.314 1.73 1.356 3 3.01 3-.324-.94-.516-1.94-.616-3H3.606ZM18.394 6h-2.394c-.1 1.06-.292 2.06-.616 3 1.654 0 2.696-1.27 3.01-3ZM9 4v3c0 2.206 1.794 4 4 4s4-1.794 4-4V4H9Z" />
+  </svg>
+);
+export const Wallet: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M3 6.25A2.25 2.25 0 0 1 5.25 4h13.5A2.25 2.25 0 0 1 21 6.25v11.5A2.25 2.25 0 0 1 18.75 20H5.25A2.25 2.25 0 0 1 3 17.75Zm2.25-.75a.75.75 0 0 0-.75.75v.25h16.5v-.25a.75.75 0 0 0-.75-.75ZM4.5 9v8.75a.75.75 0 0 0 .75.75h13.5a.75.75 0 0 0 .75-.75V9Zm11.25 4a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" />
+  </svg>
+);
+export const V: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <circle cx="12" cy="12" r="9" />
 
-// );
+    <path d="M8.2 7.5h2.1l1.7 5.1 1.7-5.1h2.1l-2.9 8.1h-1.8z" fill="#000" />
+
+    <circle cx="12" cy="12" r="7" fill="none" stroke="#000" strokeWidth="1.2" />
+  </svg>
+);
+export const User: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    {/* Head */}
+    <circle cx="12" cy="8" r="4" />
+
+    {/* Body */}
+    <path d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6v.5H4V20z" />
+  </svg>
+);
+export const CreditCard: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    {/* Card body */}
+    <rect x="2" y="5" width="20" height="14" rx="2.25" ry="2.25" />
+
+    {/* Top stripe */}
+    <rect x="2" y="8" width="20" height="2" fill="#000" />
+
+    {/* Chip / detail */}
+    <rect x="6" y="13" width="4" height="2" rx="0.5" fill="#000" />
+  </svg>
+);
+export const GiftCard: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    {/* Card base */}
+    <rect x="2" y="6" width="20" height="12" rx="2.25" ry="2.25" />
+
+    {/* Center vertical ribbon */}
+    <rect x="11" y="6" width="2" height="12" fill="#000" />
+
+    {/* Bow top left */}
+    <path
+      d="M9.5 6.5c-1.6 0-2.5-1-2.5-2 0-1.2 1-2 2.3-2 1.2 0 2.4 1.3 2.4 3.2v.8H9.5z"
+      fill="#000"
+    />
+
+    {/* Bow top right */}
+    <path
+      d="M14.5 6.5c1.6 0 2.5-1 2.5-2 0-1.2-1-2-2.3-2-1.2 0-2.4 1.3-2.4 3.2v.8h2.2z"
+      fill="#000"
+    />
+  </svg>
+);
+export const Ques: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M13 16a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-2.75-6.5A1.75 1.75 0 1 1 12 11.25a.75.75 0 0 0-.75.75v1a.75.75 0 0 0 1.5 0v-.337a3.251 3.251 0 1 0-4-3.163.75.75 0 0 0 1.5 0"></path>
+    <path
+      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12M12 3.75a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+    ></path>
+  </svg>
+);
+
+export const Logout: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    aria-hidden="true"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    {/* Bracket */}
+    <path d="M4.5 3.5h7a.75.75 0 0 1 0 1.5H6v14h5.5a.75.75 0 0 1 0 1.5h-7A1.5 1.5 0 0 1 3 19V5a1.5 1.5 0 0 1 1.5-1.5Z" />
+
+    {/* Arrow */}
+    <path d="M13.97 7.47a.75.75 0 0 1 1.06 0l3.97 3.97a.75.75 0 0 1 0 1.06l-3.97 3.97a.75.75 0 0 1-1.06-1.06l2.69-2.69H9.75a.75.75 0 0 1 0-1.5h6.91l-2.69-2.69a.75.75 0 0 1 0-1.06Z" />
+  </svg>
+);
+
+export const Gif: React.FC<IconProps> = ({ className = "" }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    width="24"
+    height="24"
+    viewBox="0 0 32 32"
+    fill="currentColor"
+  >
+    {/* fill-rule="evenodd */}
+    <g fill="currentColor" >
+      <path d="M30.443 16.605H19.72v-3.46h10.724v3.46zm-2.075 12.308c0 .397-.576.838-1.402.838h-7.247V17.99h8.648v10.924zm-14.876.838h4.843v-18.68h-4.843v18.68zm-10.033-.838V17.99h8.649v11.762H4.861c-.826 0-1.402-.441-1.402-.838zM1.384 13.146h10.724v3.46H1.384v-3.46zm1.773-4.324c0-1.622 1.319-2.94 2.94-2.94 2.752 0 5.093 3.78 5.575 5.88H6.097a2.944 2.944 0 0 1-2.94-2.94zm22.573-2.94c1.621 0 2.94 1.318 2.94 2.94 0 1.621-1.319 2.94-2.94 2.94h-5.574c.481-2.1 2.822-5.88 5.574-5.88zm5.405 5.88h-2.244a4.304 4.304 0 0 0 1.163-2.94 4.329 4.329 0 0 0-4.324-4.325c-2.89 0-5.227 2.813-6.341 5.294a.686.686 0 0 0-.362-.105H12.8a.686.686 0 0 0-.362.105c-1.114-2.481-3.45-5.294-6.34-5.294a4.329 4.329 0 0 0-4.325 4.325c0 1.136.444 2.168 1.163 2.94H.692a.692.692 0 0 0-.692.692v4.843c0 .382.31.692.692.692h1.384v10.924c0 1.246 1.223 2.222 2.785 2.222h22.105c1.562 0 2.785-.976 2.785-2.222V17.99h1.384c.382 0 .692-.31.692-.692v-4.843a.692.692 0 0 0-.692-.692zM15.914 4.151c.381 0 .691-.31.691-.692V.692a.692.692 0 0 0-1.383 0v2.767c0 .382.31.692.692.692"></path>
+      <path d="M19.546 5.362a.69.69 0 0 0 .49-.203l1.037-1.037a.692.692 0 1 0-.978-.979l-1.038 1.038a.692.692 0 0 0 .489 1.181M11.792 5.16a.69.69 0 0 0 .978 0 .692.692 0 0 0 0-.979l-1.038-1.038a.692.692 0 1 0-.978.979l1.038 1.037z"></path>
+    </g>
+  </svg>
+);

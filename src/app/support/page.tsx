@@ -1,18 +1,16 @@
-import Cart from '@/src/components/cart'
-import Gift from '@/src/components/gift'
-import Wishlist from '@/src/components/wishList'
-import React from 'react'
+
+// import AddToCart from "@/src/components/addToCart";
+import Support from "@/src/components/support";
+import React from "react";
 
 function page() {
   return (
-   <>
-   <div className='h-full '>
-    <Cart/>
-    <Gift/>
-   </div>
-<Wishlist/>
-  </>
-  )
+    <>
+      <div className="h-full ">
+        <Support backgroundImage="/img/supt.png" />
+      </div>
+    </>
+  );
 }
 
-export default page
+export default page;

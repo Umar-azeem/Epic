@@ -12,7 +12,7 @@ import {
   Sketchfab,
   Twinmotion,
   UnrealEngine,
-} from "./icons";
+} from "./icons/indexs";
 import { Skeleton } from "./ui/skeleton";
 import Link from "next/link";
 const createMenu = [
@@ -69,11 +69,8 @@ const playMenu = [
 function Epic() {
   return (
     <>
-      <div
-        className=" grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#343440] text-white w-full md:w-[600px]"
-      >
+      <div className="  grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#343440] text-white w-full md:w-[600px]">
         <div className="">
-                 
           <div className="flex flex-col space-y-2 p-6 text-white">
             <h3 className="text-white font-bold text-lg">Play</h3>
 

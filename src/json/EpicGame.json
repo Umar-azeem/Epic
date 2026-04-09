@@ -1,0 +1,846 @@
+{
+  "page": {
+    "pageTitle": "Epic Games Store",
+    "pageSlug": "home"
+  },
+  "sections": {
+    "deals": {
+      "type": "deals",
+      "title": "Deals of the Week",
+      "items": [
+        {
+          "id": 1,
+          "title": "Detroit: Become Human",
+          "image": "/img/gloomy-eyes.png",
+          "discount": 67,
+          "originalPrice": 140,
+          "currentPrice": 46.2,
+          "label": "Deals of the Week"
+        },
+        {
+          "id": 2,
+          "title": "Hell Let Loose - Deluxe",
+          "image": "/img/gloomy-eyes.png",
+          "discount": 33,
+          "originalPrice": 59.99,
+          "currentPrice": 39.99,
+          "label": "Deals of the Week"
+        },{
+          "id": 3,
+          "title": "Detroit: Become Human",
+          "image": "/img/gloomy-eyes.png",
+          "discount": 67,
+          "originalPrice": 140,
+          "currentPrice": 46.2,
+          "label": "Deals of the Week"
+        }
+      ]
+    },
+    "free": {
+      "type": "free",
+      "title": "Free Games",
+      "items": [
+        {
+          "id": 1,
+          "title": "Styx: Master of Shadows",
+          "image": "/img/gloomy-eyes.png",
+          "dates": "Free Now – Jan 22 at 09:00 PM",
+          "label": "FREE NOW"
+        },
+        {
+          "id": 2,
+          "title": "Styx: Master of Shadows",
+          "image": "/img/gloomy-eyes.png",
+          "dates": "Free Now – Jan 22 at 09:00 PM",
+          "label": "FREE NOW"
+        },
+        {
+          "id": 3,
+          "title": "Rustler – Grand Theft Horse",
+          "image": "/img/gloomy-eyes.png",
+          "dates": "Free Jan 22 – Jan 29",
+          "label": "COMING SOON"
+        }
+      ]
+    },
+    "featuredGames": {
+      "sectionTitle": "Featured Games",
+      "items": [
+        {
+          "id": 1,
+          "title": "Marvel Rivals",
+          "description": "Season 6 is live now! Deadpool has officially joined Marvel Rivals.",
+          "image": "/img/gloomy-eyes.png",
+          "price": null,
+          "badge": "FREE",
+          "button": {
+            "text": "Play For Free",
+            "style": "primary"
+          }
+        },
+        {
+          "id": 2,
+          "title": "ENDLESS™ LEGEND 2",
+          "description": "Turn-based fantasy strategy experience.",
+          "image": "/img/gloomy-eyes.png",
+          "price": "$24.99",
+          "badge": "Base Game",
+          "button": {
+            "text": "Buy Now",
+            "style": "secondary"
+          }
+        },
+        {
+          "id": 3,
+          "title": "ENDLESS™ LEGEND 2",
+          "description": "Turn-based fantasy strategy experience.",
+          "image": "/img/gloomy-eyes.png",
+          "price": "$24.99",
+          "badge": "Base Game",
+          "button": {
+            "text": "Buy Now",
+            "style": "secondary"
+          }
+        },
+        {
+          "id": 4,
+          "title": "ENDLESS™ LEGEND 2",
+          "description": "Turn-based fantasy strategy experience.",
+          "image": "/img/gloomy-eyes.png",
+          "price": "$24.99",
+          "badge": "Base Game",
+          "button": {
+            "text": "Buy Now",
+            "style": "secondary"
+          }
+        },
+        {
+          "id": 5,
+          "title": "ENDLESS™ LEGEND 2",
+          "description": "Turn-based fantasy strategy experience.",
+          "image": "/img/gloomy-eyes.png",
+          "price": "$24.99",
+          "badge": "Base Game",
+          "button": {
+            "text": "Buy Now",
+            "style": "secondary"
+          }
+        },
+        {
+          "id": 6,
+          "title": "ENDLESS™ LEGEND 2",
+          "description": "Turn-based fantasy strategy experience.",
+          "image": "/img/gloomy-eyes.png",
+          "price": "$24.99",
+          "badge": "Base Game",
+          "button": {
+            "text": "Buy Now",
+            "style": "secondary"
+          }
+        }
+      ]
+    },
+    "topSellers": {
+      "sectionTitle": "Top Sellers",
+      "items": [
+        {
+          "id": 1,
+          "title": "ARC Raiders",
+          "category": "Base Game",
+          "price": 39.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 2,
+          "title": "EA SPORTS FC 26",
+          "category": "Base Game",
+          "price": 69.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 3,
+          "title": "Battlefield™ 6",
+          "category": "Base Game",
+          "price": 59.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 4,
+          "title": "Ready or Not",
+          "category": "Base Game",
+          "price": 23.29,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 5,
+          "title": "FIFA 26",
+          "category": "Base Game",
+          "price": 49.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 6,
+          "title": "Cyberpunk 2077",
+          "category": "Base Game",
+          "price": 29.99,
+          "image": "/img/gloomy-eyes.png"
+        }
+      ]
+    },
+    "newReleases": {
+      "sectionTitle": "New Releases",
+      "items": [
+        {
+          "id": 7,
+          "title": "Cats Hidden Around the World",
+          "price": 6.09,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 8,
+          "title": "Football Manager 26",
+          "price": 39.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 9,
+          "title": "Marvel Rivals",
+          "price": 0,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 10,
+          "title": "ENDLESS™ LEGEND 2",
+          "price": 24.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 11,
+          "title": "Grand Theft Auto V",
+          "price": 29.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 12,
+          "title": "Horizon Zero Dawn",
+          "price": 30,
+          "image": "/img/gloomy-eyes.png"
+        }
+      ]
+    },
+    "comingSoon": {
+      "sectionTitle": "Coming Soon",
+      "items": [
+        {
+          "id": 13,
+          "title": "ENDLESS™ LEGEND 2",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "01/22/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 14,
+          "title": "Crimson Desert",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "03/19/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 15,
+          "title": "Cyberpunk 2088",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "05/10/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 16,
+          "title": "Assassin's Creed 2026",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "06/15/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 17,
+          "title": "FIFA 27",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "07/20/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 18,
+          "title": "Resident Evil 9",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "08/30/26",
+          "category": "Base Game"
+        }
+      ]
+    },
+    "topAddOns": {
+      "sectionTitle": "Top Add-Ons",
+      "items": [
+        {
+          "id": 1,
+          "title": "ARC Raiders",
+          "category": "Base Game",
+          "price": 39.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 2,
+          "title": "EA SPORTS FC 26",
+          "category": "Base Game",
+          "price": 69.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 3,
+          "title": "Battlefield™ 6",
+          "category": "Base Game",
+          "price": 59.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 4,
+          "title": "Ready or Not",
+          "category": "Base Game",
+          "price": 23.29,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 5,
+          "title": "FIFA 26",
+          "category": "Base Game",
+          "price": 49.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 6,
+          "title": "Cyberpunk 2077",
+          "category": "Base Game",
+          "price": 29.99,
+          "image": "/img/gloomy-eyes.png"
+        }
+      ]
+    },
+    "topFreetoPlay": {
+      "sectionTitle": "Top Free To Play",
+      "items": [
+        {
+          "id": 7,
+          "title": "Cats Hidden Around the World",
+          "price": 6.09,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 8,
+          "title": "Football Manager 26",
+          "price": 39.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 9,
+          "title": "Marvel Rivals",
+          "price": 0,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 10,
+          "title": "ENDLESS™ LEGEND 2",
+          "price": 24.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 11,
+          "title": "Grand Theft Auto V",
+          "price": 29.99,
+          "image": "/img/gloomy-eyes.png"
+        },
+        {
+          "id": 12,
+          "title": "Horizon Zero Dawn",
+          "price": 30,
+          "image": "/img/gloomy-eyes.png"
+        }
+      ]
+    },
+    "topDemos": {
+      "sectionTitle": "Top Demo",
+      "items": [
+        {
+          "id": 13,
+          "title": "ENDLESS™ LEGEND 2",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "01/22/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 14,
+          "title": "Crimson Desert",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "03/19/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 15,
+          "title": "Cyberpunk 2088",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "05/10/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 16,
+          "title": "Assassin's Creed 2026",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "06/15/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 17,
+          "title": "FIFA 27",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "07/20/26",
+          "category": "Base Game"
+        },
+        {
+          "id": 18,
+          "title": "Resident Evil 9",
+          "image": "/img/gloomy-eyes.png",
+          "availableDate": "08/30/26",
+          "category": "Base Game"
+        }
+      ]
+    },
+    "Trending": {
+      "sectionTitle": "Trending",
+      "items": [
+        {
+          "id": 1,
+          "title": "ENDLESS™ LEGEND 2",
+          "category": "Base Game",
+          "price": "$24.99",
+          "image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=400&fit=crop",
+          "gradient": "from-orange-400 to-pink-500",
+          "availableDate": "01/22/26"
+        },
+        {
+          "id": 2,
+          "title": "KAKU: Ancient Seal",
+          "category": "Base Game",
+          "price": "$11.59",
+          "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=400&fit=crop",
+          "gradient": "from-yellow-400 to-orange-500",
+          "availableDate": "01/22/26"
+        },
+        {
+          "id": 3,
+          "title": "Terminator 2D: NO FATE",
+          "category": "Base Game",
+          "price": "$13.99",
+          "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=400&fit=crop",
+          "gradient": "from-red-500 to-pink-600",
+          "availableDate": "01/22/26"
+        },
+        {
+          "id": 4,
+          "title": "A Game About Digging A",
+          "category": "Base Game",
+          "price": "$2.29",
+          "image": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=400&h=400&fit=crop",
+          "gradient": "from-amber-600 to-yellow-700",
+          "availableDate": "01/22/26"
+        },
+        {
+          "id": 5,
+          "title": "Botany Manor",
+          "category": "Base Game",
+          "price": "$11.59",
+          "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=400&fit=crop",
+          "gradient": "from-blue-400 to-cyan-500",
+          "availableDate": "Coming Soon"
+        }
+      ]
+    },
+    "dealsOfTheWeek": {
+      "sectionTitle": "Deals of the Week",
+      "viewAll": false,
+      "items": [
+        {
+          "id": 1,
+          "title": "Detroit: Become Human",
+          "image": "/img/gloomy-eyes.png",
+          "discount": 67,
+          "originalPrice": 140,
+          "currentPrice": 46.2,
+          "label": "Deals of the Week"
+        },
+        {
+          "id": 2,
+          "title": "Horizon Zero Dawn",
+          "image": "/img/gloomy-eyes.png",
+          "discount": 50,
+          "originalPrice": 60,
+          "currentPrice": 30,
+          "label": "Deals of the Week"
+        },
+        {
+          "id": 2,
+          "title": "Horizon Zero Dawn",
+          "image": "/img/gloomy-eyes.png",
+          "discount": 50,
+          "originalPrice": 60,
+          "currentPrice": 30,
+          "button":[{ "text":"browse", "style":"secondary"}]
+        }
+      ]
+    },
+    "freeGame":{
+    "sectionTitle": "Free Games",
+    "viewMore": true,
+    "items": [
+    {
+      "id": 1,
+      "title": "Definitely Not Fried Chicken",
+      "type": "game",
+      "image": "/img/gloomy-eyes.png",
+      "dates": "Free Now - Feb 05 at 03:00 PM",
+      "originalPrice": "$9.99",
+      "label": "FREE NOW"
+    },
+    {
+      "id": 2,
+      "title": "Botany Manor",
+      "type": "game",
+      "image": "/img/gloomy-eyes.png",
+      "dates": "Coming Soon",
+      "status": "COMING SOON",
+      "availableDate": "Feb 05 - Feb 12",
+      "label": "COMING SOON"
+    },
+    {
+      "id": 3,
+      "title": "Poison Retro Set",
+      "type": "addon",
+      "image": "/img/gloomy-eyes.png",
+      "dates": "Free Feb 05 - Feb 12",
+      "gameType": "Add-on",
+      "label": "COMING SOON"
+    }
+  ]
+    },
+    "Fortnite":{
+    "sectionTitle": "Fortnite",
+    "viewMore": true,
+    "items": [
+    {
+      "id": 1,
+      "title": "This Week in Fortnite",
+      "description":"Check out the latest updates in Fortnite, from classic Battle Royale to Blitz and Delulu. There’s always something new in Fortnite!",
+      "image": "/img/gloomy-eyes.png",
+      "button":[{ "text":"Discover Now", "style":"secondary"}]
+    },
+    {
+      "id": 2,
+      "title": "This Week in Fortnite",
+      "description":"Check out the latest updates in Fortnite, from classic Battle Royale to Blitz and Delulu. There’s always something new in Fortnite!",
+      "image": "/img/gloomy-eyes.png",
+      "button":[{ "text":"See in Shop", "style":"secondary", "link":"https://www.fortnite.com/item-shop/outfits/tourready-sabrina-carpenter-a847e211?lang=en-US"}]
+
+    },
+    {
+      "id": 3,
+     "title": "This Week in Fortnite",
+      "description":"Check out the latest updates in Fortnite, from classic Battle Royale to Blitz and Delulu. There’s always something new in Fortnite!",
+      "image": "/img/gloomy-eyes.png",
+      "button":[{ "text":"See in Shop", "style":"secondary", "link":"https://www.fortnite.com/item-shop/outfits/tourready-sabrina-carpenter-a847e211?lang=en-US"}]
+
+    }
+  ]
+    },
+     "playForFree":{
+    "sectionTitle": "play For Free",
+    "viewMore": true,
+    "items": [
+    {
+      "id": 1,
+      "title": "This Week in Fortnite",
+      "description":"Check out the latest updates in Fortnite, from classic Battle Royale to Blitz and Delulu. There’s always something new in Fortnite!",
+      "image": "/img/gloomy-eyes.png",
+       "discount": 50,
+        "originalPrice": 60,
+        "currentPrice": 30
+    },
+    {
+      "id": 2,
+      "title": "This Week in Fortnite",
+      "description":"Check out the latest updates in Fortnite, from classic Battle Royale to Blitz and Delulu. There’s always something new in Fortnite!",
+      "image": "/img/gloomy-eyes.png",
+       "discount": 50,
+      "originalPrice": 60,
+       "currentPrice": 30
+
+    },
+    {
+      "id": 3,
+     "title": "This Week in Fortnite",
+      "description":"Check out the latest updates in Fortnite, from classic Battle Royale to Blitz and Delulu. There’s always something new in Fortnite!",
+      "image": "/img/gloomy-eyes.png",
+       "discount": 50,
+      "originalPrice": 60,
+        "currentPrice": 30,
+      "button":[{ "text":"Play For Free", "style":"secondary"}]
+
+    }
+  ]
+    },
+    "GameWithDisc": {
+      "sectionTitle": "Game with disc",
+      "items": [
+        {
+          "id": 1,
+          "title": "The Sims™ 4",
+          "description": "Royalty & Legacy includes 2 free Kits and the Regal Treasures Digital Content when you purchase by March 15.",
+          "price": 39.99,
+          "priceText": "$39.99",
+          "button": {
+            "text": "Buy Now",
+            "type": "paid",
+            "status": ""
+          },
+          "image": "/img/gloomy-eyes.png",
+          "tag": "Limited Offer"
+        },
+        {
+          "id": 2,
+          "title": "The Sims™ 4",
+          "description": "Royalty & Legacy includes 2 free Kits and the Regal Treasures Digital Content when you purchase by March 15.",
+          "price": 39.99,
+          "priceText": "$39.99",
+          "button": {
+            "text": "Buy Now",
+            "type": "paid",
+            "status": ""
+          },
+          "image": "/img/gloomy-eyes.png",
+          "tag": "Limited Offer"
+        },
+        {
+          "id": 3,
+          "title": "Marvel Rivals",
+          "description": "Season 6 is live now! Deadpool has officially joined Marvel Rivals.",
+          "price": 0,
+          "priceText": "Free",
+          "button": {
+            "text": "Play For Free",
+            "type": "free"
+          },
+          "image": "/img/gloomy-eyes.png",
+          "tag": "New Season"
+        }
+      ]
+    },
+    "allGamesGrid": {
+      "sectionTitle": "All Games",
+      "items": [
+        {
+          "id": 9,
+          "title": "ENDLESS™ LEGEND 2",
+          "category": "Base Game",
+          "price": "$24.99",
+          "discount": "-80%",
+          "gradient": "from-orange-400 to-pink-500",
+          "image": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=400&fit=crop"
+        },
+        {
+          "id": 10,
+          "title": "ARC Raiders",
+          "category": "Base Game",
+          "price": "$39.99",
+          "trialAvailable": false,
+          "image": "/img/gloomy-eyes.png"
+        }
+      ]
+    }
+  },
+  "games": [
+    {
+      "id": 1,
+      "title": "Fortnite",
+      "slug": "fortnite",
+      "price": 0,
+      "currency": "USD",
+      "isFree": true,
+      "rating": 4.7,
+      "genres": ["Battle Royale", "Shooter", "Multiplayer"],
+      "platforms": ["PC", "PS", "Xbox", "Mobile"],
+      "releaseDate": "2017-07-21",
+      "developer": "Epic Games",
+      "publisher": "Epic Games",
+      "description": "Jump into the action-packed battle royale with constant updates and seasons.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/fortnite1.jpg", "/images/fortnite2.jpg"],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Rocket League",
+      "slug": "rocket-league",
+      "price": 0,
+      "currency": "USD",
+      "isFree": true,
+      "rating": 4.5,
+      "genres": ["Sports", "Action"],
+      "platforms": ["PC", "PS5", "Xbox", "Switch"],
+      "releaseDate": "2015-07-07",
+      "developer": "Psyonix",
+      "publisher": "Psyonix",
+      "description": "Fast-paced rocket-powered soccer game.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/rocket1.jpg", "/images/rocket2.jpg"],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Grand Theft Auto V",
+      "slug": "grand-theft-auto-v",
+      "price": 29.99,
+      "currency": "USD",
+      "isFree": false,
+      "rating": 4.8,
+      "genres": ["Action", "Open World"],
+      "platforms": ["PC", "PS5", "Xbox"],
+      "releaseDate": "2013-09-17",
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "description": "Billion-selling open world crime adventure.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/gta5_1.jpg", "/images/gta5_2.jpg"],
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "Dead by Daylight",
+      "slug": "dead-by-daylight",
+      "price": 19.99,
+      "currency": "USD",
+      "isFree": false,
+      "rating": 4.2,
+      "genres": ["Horror", "Multiplayer"],
+      "platforms": ["PC", "PS", "Xbox"],
+      "releaseDate": "2016-06-14",
+      "developer": "Behaviour Interactive",
+      "publisher": "Behaviour Interactive",
+      "description": "Asymmetrical horror survival game.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/dbd1.jpg", "/images/dbd2.jpg"],
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Arknights: Endfield",
+      "slug": "arknights-endfield",
+      "price": 0,
+      "currency": "USD",
+      "isFree": true,
+      "rating": 4.0,
+      "genres": ["Strategy", "RPG"],
+      "platforms": ["PC", "Mobile"],
+      "releaseDate": "2025-01-20",
+      "developer": "Hypergryph",
+      "publisher": "Yostar",
+      "description": "RPG strategy in the Arknights universe.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/ark1.jpg", "/images/ark2.jpg"],
+      "featured": true
+    },
+    {
+      "id": 6,
+      "title": "Duet Night Abyss",
+      "slug": "duet-night-abyss",
+      "price": 0,
+      "currency": "USD",
+      "isFree": true,
+      "rating": 3.8,
+      "genres": ["Shooter", "Action"],
+      "platforms": ["PC"],
+      "releaseDate": "2025-01-15",
+      "developer": "Indie",
+      "publisher": "Indie",
+      "description": "Free-to-play shooter with night theme.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/duet1.jpg", "/images/duet2.jpg"],
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Crimson Desert",
+      "slug": "crimson-desert",
+      "price": 49.99,
+      "currency": "USD",
+      "isFree": false,
+      "rating": 4.1,
+      "genres": ["Action", "MMO"],
+      "platforms": ["PC", "PS5", "Xbox"],
+      "releaseDate": "2026-03-19",
+      "developer": "Pearl Abyss",
+      "publisher": "Pearl Abyss",
+      "description": "Massive open world RPG adventure.",
+      "coverImage": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/cd1.jpg", "/images/cd2.jpg"],
+      "featured": true
+    },
+    {
+      "id": 8,
+      "title": "SUDOKU CHAMPIONS",
+      "slug": "sudoku-champions",
+      "price": 0,
+      "currency": "USD",
+      "isFree": true,
+      "rating": 3.5,
+      "genres": ["Puzzle"],
+      "platforms": ["PC"],
+      "releaseDate": "2026-01-29",
+      "developer": "Puzzle Dev",
+      "publisher": "Puzzle Dev",
+      "description": "Relaxing sudoku puzzle game.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/sudoku1.jpg"],
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "The Legend of Heroes: Trails beyond the Horizon",
+      "slug": "legend-heroes-trails",
+      "price": 39.99,
+      "currency": "USD",
+      "isFree": false,
+      "rating": 4.3,
+      "genres": ["RPG", "Adventure"],
+      "platforms": ["PC"],
+      "releaseDate": "2026-01-29",
+      "developer": "Falcom",
+      "publisher": "NIS America",
+      "description": "Epic JRPG story and world.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/trails1.jpg"],
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Countless Army",
+      "slug": "countless-army",
+      "price": 24.99,
+      "currency": "USD",
+      "isFree": false,
+      "rating": 4.0,
+      "genres": ["Strategy", "Action"],
+      "platforms": ["PC"],
+      "releaseDate": "2026-01",
+      "developer": "Indie Devs",
+      "publisher": "Indie",
+      "description": "Fight strategy battles with endless units.",
+      "image": "/img/gloomy-eyes.png",
+      "screenshots": ["/images/army1.jpg"],
+      "featured": false
+    }
+  ]
+}

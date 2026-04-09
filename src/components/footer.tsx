@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Face, Store, X, Yt } from "./icons";
+import { Face, Store, X, Yt } from "./icons/indexs";
 import Link from "next/link";
 import { ChevronDown, CircleArrowUp } from "lucide-react";
 
@@ -94,13 +94,22 @@ export default function Footer() {
           <div className="text-center py-8 border-b border-[#3A3A3E]">
             <h2 className="text-white text-2xl font-bold mb-6">STORE</h2>
             <div className="flex justify-center gap-6">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Face className="w-6 h-6" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <X className="w-6 h-6" />
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Yt className="w-6 h-6" />
               </Link>
             </div>
@@ -114,16 +123,20 @@ export default function Footer() {
                   onClick={() => toggleSection(section.title)}
                   className="w-full flex items-center justify-between py-5 px-4 text-left"
                 >
-                  <span className="text-white font-semibold text-lg">{section.title}</span>
+                  <span className="text-white font-semibold text-lg">
+                    {section.title}
+                  </span>
                   <ChevronDown
                     className={`w-5 h-5 text-white transition-transform duration-300 ${
-                      expandedSection === section.title ? 'rotate-180' : ''
+                      expandedSection === section.title ? "rotate-180" : ""
                     }`}
                   />
                 </button>
-                <div 
+                <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    expandedSection === section.title ? 'max-h-96 pb-5' : 'max-h-0'
+                    expandedSection === section.title
+                      ? "max-h-96 pb-5"
+                      : "max-h-0"
                   }`}
                 >
                   <ul className="space-y-3 px-4">
@@ -146,7 +159,11 @@ export default function Footer() {
           {/* Copyright - Mobile */}
           <div className="px-4 py-8 text-center text-gray-500 text-xs leading-relaxed">
             <p>
-              © 2026, Epic Games, Inc. All rights reserved. Epic, Epic Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal Engine, the Unreal Engine logo, Unreal Tournament, and the Unreal Tournament logo are trademarks or registered trademarks of Epic Games, Inc. in the United States of America and elsewhere.
+              © 2026, Epic Games, Inc. All rights reserved. Epic, Epic Games,
+              the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal
+              Engine, the Unreal Engine logo, Unreal Tournament, and the Unreal
+              Tournament logo are trademarks or registered trademarks of Epic
+              Games, Inc. in the United States of America and elsewhere.
             </p>
           </div>
         </div>
@@ -158,13 +175,22 @@ export default function Footer() {
             <div className="flex justify-between items-center border-b py-8 border-[#3A3A3E]">
               <Store className="w-15 h-15" />
               <div className="flex gap-4">
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <Face className="w-7 h-7" />
                 </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <X className="w-7 h-7" />
                 </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <Yt className="w-7 h-7" />
                 </Link>
               </div>
@@ -194,48 +220,61 @@ export default function Footer() {
                 </div>
               ))}
             </div>
-
-            {/* Copyright and Back to Top */}
             <div className="border-t border-[#3A3A3E] pt-8 flex flex-col md:flex-row justify-between items-start gap-4">
               <div>
                 <p className="text-[14px] font-normal text-text-clr-light max-w-4xl">
-                  © 2026, Epic Games, Inc. All rights reserved. Epic, Epic Games,
-                  the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal
-                  Engine, the Unreal Engine logo, Unreal Tournament, and the
-                  Unreal Tournament logo are trademarks or registered trademarks
-                  of Epic Games, Inc. in the United States of America and
-                  elsewhere. Other brands or product names are the trademarks of
-                  their respective owners. Our websites may contain links to other
-                  sites and resources provided by third parties. These links are
-                  provided for your convenience only. Epic Games has no control
-                  over the contents of those sites or resources, and accepts no
-                  responsibility for them or for any loss or damage that may arise
-                  from your use of them.
+                  © 2026, Epic Games, Inc. All rights reserved. Epic, Epic
+                  Games, the Epic Games logo, Fortnite, the Fortnite logo,
+                  Unreal, Unreal Engine, the Unreal Engine logo, Unreal
+                  Tournament, and the Unreal Tournament logo are trademarks or
+                  registered trademarks of Epic Games, Inc. in the United States
+                  of America and elsewhere. Other brands or product names are
+                  the trademarks of their respective owners. Our websites may
+                  contain links to other sites and resources provided by third
+                  parties. These links are provided for your convenience only.
+                  Epic Games has no control over the contents of those sites or
+                  resources, and accepts no responsibility for them or for any
+                  loss or damage that may arise from your use of them.
                 </p>
 
                 <ul className="flex flex-wrap items-center gap-6 py-10 text-sm">
                   <li>
-                    <Link href="/terms-of-service" className="hover:text-white transition-colors">
+                    <Link
+                      href="/terms-of-service"
+                      className="hover:text-white transition-colors"
+                    >
                       Terms of service
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy-policy" className="hover:text-white transition-colors">
+                    <Link
+                      href="/privacy-policy"
+                      className="hover:text-white transition-colors"
+                    >
                       Privacy policy
                     </Link>
                   </li>
                   <li>
-                    <Link href="/safety-security" className="hover:text-white transition-colors">
+                    <Link
+                      href="/safety-security"
+                      className="hover:text-white transition-colors"
+                    >
                       Safety & security
                     </Link>
                   </li>
                   <li>
-                    <Link href="/store-refund-policy" className="hover:text-white transition-colors">
+                    <Link
+                      href="/store-refund-policy"
+                      className="hover:text-white transition-colors"
+                    >
                       Store refund policy
                     </Link>
                   </li>
                   <li>
-                    <Link href="/publisher-index" className="hover:text-white transition-colors">
+                    <Link
+                      href="/publisher-index"
+                      className="hover:text-white transition-colors"
+                    >
                       Publisher Index
                     </Link>
                   </li>

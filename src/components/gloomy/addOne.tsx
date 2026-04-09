@@ -102,14 +102,14 @@ const addOns = [
 ];
 
 type FilterDropdownProps = {
-  title: string
-  options: { label: string; value: string }[]
-  category: string
-  isOpen: boolean
-  onToggle: (category: string) => void
-  selectedValues: string[]
-  onValueChange: (category: string, value: string) => void
-}
+  title: string;
+  options: { label: string; value: string }[];
+  category: string;
+  isOpen: boolean;
+  onToggle: (category: string) => void;
+  selectedValues: string[];
+  onValueChange: (category: string, value: string) => void;
+};
 const FilterSection = ({
   title,
   options,
@@ -118,7 +118,7 @@ const FilterSection = ({
   onToggle,
   selectedValues,
   onValueChange,
-}:FilterDropdownProps) => (
+}: FilterDropdownProps) => (
   <div className="border-b border-text-clr/20">
     <button
       onClick={() => onToggle(category)}
@@ -290,7 +290,7 @@ export default function AddOne() {
     >
       {/* Header */}
 
-      <div className="p-6 pb-4 flex items-center justify-between">
+      <div className="py-6 pb-4 flex items-center justify-between">
         <h2 className="text-white text-2xl font-bold">Filters</h2>
         {isMobile && (
           <button
@@ -302,8 +302,7 @@ export default function AddOne() {
         )}
       </div>
 
-      {/* Keyword Search */}
-      <div className="px-6 pb-4">
+      <div className=" pb-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
           <input

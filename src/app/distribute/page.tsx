@@ -1,10 +1,9 @@
 import React from "react";
-
+// import OnEpicGameStore from "./components/onEpicGamesStore";
 function Page() {
   return (
     <div>
-      {" "}
-      <p className="h10 w-full bg-app text-white">distribute </p>
+      {/* <OnEpicGameStore /> */}
     </div>
   );
 }
