@@ -243,3 +243,38 @@
    width: 1px;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* Firefox ke liye */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #6705FC rgba(31, 41, 55, 0.5);
+}
+
+/* Chrome/Safari ke liye */
+.custom-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #6705FC;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #5604d9;
+}

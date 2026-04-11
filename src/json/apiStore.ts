@@ -13,7 +13,7 @@ interface GameStore {
   games: Game[];
   loading: boolean;
   fetchGames: () => Promise<void>;
-  addGames: (data: Game[]) => void;        // kept for backwards‑compatibility
+  addGames: (data: Game[]) => void;       
 }
 
 export const useGameStore = create<GameStore>((set) => ({

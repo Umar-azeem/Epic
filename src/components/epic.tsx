@@ -16,15 +16,15 @@ import {
 import { Skeleton } from "./ui/skeleton";
 import Link from "next/link";
 const createMenu = [
-  { label: "Unreal Engine", icon: UnrealEngine },
-  { label: "Create in Fortnite", icon: F },
-  { label: "MetaHuman", icon: Metahuman },
-  { label: "Twinmotion", icon: Twinmotion },
-  { label: "RealityScan", icon: RealityScan },
-  { label: "Epic Online Services", icon: EpicGame },
-  { label: "Publish on Epic Games Store", icon: EpicGame },
-  { label: "Kids Web Services", icon: KidsWeb },
-  { label: "Developer Community", icon: EpicGame },
+  { label: "Unreal Engine", icon: UnrealEngine , href:"https://www.unrealengine.com/?lang=en-US", },
+  { label: "Create in Fortnite", icon: F , href:"https://www.fortnite.com/developer?lang=en-US" },
+  { label: "MetaHuman", icon: Metahuman , href:"https://www.metahuman.com/?lang=en-US"},
+  { label: "Twinmotion", icon: Twinmotion, href:"https://www.twinmotion.com/?lang=en-US" },
+  { label: "RealityScan", icon: RealityScan , href:"https://www.realityscan.com/"},
+  { label: "Epic Online Services", icon: EpicGame, href:"/Epiconlineservices" },
+  { label: "Publish on Epic Games Store", icon: EpicGame , href:"/Epicdistribution"},
+  { label: "Kids Web Services", icon: KidsWeb , href:"/KidsWebServices"},
+  { label: "Developer Community", icon: EpicGame , href:"/DeveloperCommunity"},
 ];
 const discoverMenu = [
   {
@@ -35,34 +35,34 @@ const discoverMenu = [
   {
     label: "Fab",
     icon: Feb,
-    href: "/fab",
+    href: "/feb",
   },
   {
     label: "Sketchfab",
     icon: Sketchfab,
-    href: "/sketchfab",
+    href: "https://sketchfab.com/",
   },
   {
     label: "ArtStation",
     icon: ArtStation,
-    href: "/artstation",
+    href: "https://www.artstation.com/?sort_by=community&dimension=all",
   },
 ];
 const playMenu = [
   {
     label: "Fortnite",
     icon: F,
-    href: "/fortnite",
+    href: "https://www.fortnite.com/?lang=en-US",
   },
   {
     label: "Rocket League",
     icon: RocketLeague,
-    href: "/rocket-league",
+    href: "https://www.rocketleague.com/en/",
   },
   {
     label: "Fall Guys",
     icon: ArtStation,
-    href: "/fall-guys",
+    href: "https://www.fallguys.com/en-US?lang=en-US",
   },
 ];
 
@@ -82,6 +82,7 @@ function Epic() {
                   <li key={index}>
                     <Link
                       href={item.href}
+                       target="_blank"
                       className="flex items-center gap-3 px-3 py-2  hover:bg-[#3a3a3a] rounded text-[15px] transition-colors"
                     >
                       <Icon className="w-5 h-5" />
@@ -103,7 +104,8 @@ function Epic() {
                 return (
                   <li key={index}>
                     <Link
-                      href="#"
+                      href={item.href}
+                       target="_blank"
                       className="flex items-center gap-3 px-3 py-2  hover:bg-[#3a3a3a] rounded text-[15px] transition-colors"
                     >
                       <Icon className="w-5 h-5" />
@@ -125,8 +127,9 @@ function Epic() {
               return (
                 <Link
                   key={index}
-                  href="#"
-                  className="flex items-center gap-3 px-3 py-2  hover:bg-[#3a3a3a] rounded text-[15px] transition-colors"
+                  href={item.href}
+                  target="_blank"
+                  className="flex items-center  target:_blank gap-3 px-3 py-2  hover:bg-[#3a3a3a] rounded text-[15px] transition-colors"
                 >
                   <Icon className="w-5 h-5" />
                   {item.label}

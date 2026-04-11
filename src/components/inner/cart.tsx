@@ -58,13 +58,29 @@ export default function Cart() {
               <Card className="w-full text-white flex p-0 flex-row max-w-sm bg-transparent border border-text-clr/60">
                 <div className="w-full flex p-3">
                   {" "}
-                  <Image
+                  <div className="border-2 border-black w-[68px] h-[68px]">
+                  <div className="w-[50px] border-4 border-white font-sans">
+                    <div className="flex w-[50px] text-[10px] justify-between items-center border bg-#292929 text-white px-2 py-1  font-semibold tracking-widest">
+                      <span>I</span>
+                      <span>A</span>
+                      <span>R</span>
+                      <span>C</span>
+                    </div>
+
+                    <div className="flex w-[50px]  items-center justify-center bg-gray-100 ">
+                      <span className="text-md  font-bold text-gray-900">
+                        16+
+                      </span>
+                    </div>
+                  </div>
+                  </div>
+                  {/* <Image
                     src={"/img/7+.png"}
                     width={100}
                     height={100}
                     alt="Game screenshot"
                     className="w-14 h-14 object-cover "
-                  />
+                  /> */}
                   <CardHeader className="w-full p-2">
                     <CardTitle className="">7+</CardTitle>
                     <CardDescription>Fear, Mild Violence </CardDescription>

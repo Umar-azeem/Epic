@@ -207,7 +207,7 @@ export default function Topber() {
                 align="start"
               >
                 <p className="font-mono text-xs font-medium text-text-clr-light py-2">
-                  store
+                  store 
                 </p>
                 <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2 border-none  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
                   {" "}
@@ -250,10 +250,10 @@ export default function Topber() {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  <Ques className="w-4 h-4" /> support
+                  <Ques className="w-4 h-4" /><Link href="/login">support</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="flex gap-2 items-center  px-3 py-2  text-[15px]  hover:bg-[#3a3a3a] rounded = transition-colors">
-                  <Logout className="w-4 h-4" /> Logout Page
+                  <Logout className="w-4 h-4" /><Link href="/login">Logout Page</Link> 
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

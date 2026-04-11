@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+// GameDiscoverySection.tsx (Updated)
+"use client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Game } from "../app/admin/components/types";
 import Image from "next/image";
+import WishlistButton from "@/src/components/WishlistButton";
+import { useState } from "react";
 
 interface GameDiscoverySectionProps {
   label?: string;
@@ -37,24 +40,20 @@ function GameDiscoverySection({
           const createdAt = new Date(item.createdAt);
           return matchesSection && createdAt >= twoMonthsAgo;
         }
-        // console.log("discover something new", matchesSection);
 
         if (normalizedLabel === "season sale spotlight") {
           return matchesSection && item.discount > 0;
         }
-        // console.log("season sale spotlight", matchesSection);
 
         if (normalizedLabel === "top new releases") {
           const createdAt = new Date(item.createdAt);
           return matchesSection && createdAt >= tenDaysAgo;
         }
-        // console.log("top new releases", matchesSection);
 
         if (normalizedLabel === "Early Access") {
           const createdAt = new Date(item.createdAt);
           return matchesSection && createdAt >= nextTenDays;
         }
-        // console.log("Early Access", matchesSection);
 
         return matchesSection;
       })
@@ -102,7 +101,7 @@ function GameDiscoverySection({
             {gamesArray.map((game: any) => (
               <div
                 key={game._id}
-                className="max-w-48 flex-shrink-0 group cursor-pointer"
+                className="max-w-48 flex-shrink-0 group cursor-pointer relative"
               >
                 <div className="relative rounded-lg overflow-hidden mb-3 aspect-[3/4] group-hover:scale-105 transition">
                   <Image
@@ -113,11 +112,17 @@ function GameDiscoverySection({
                     className="object-cover h-full w-full"
                     priority
                   />
+                  {/* ✅ Wishlist Button with Login Check */}
+                  <div className="absolute top-2 right-2 z-10">
+                    <WishlistButton gameId={game._id} gameData={game} />
+                  </div>
                 </div>
                 <div className="space-y-1 overflow-hidden">
                   {game.label === "Discover Something New" &&
                     game.category !== "" && (
-                      <p className="text-xs text-gray-400 w-18 h-4 overflow-hidden">{game.category}</p>
+                      <p className="text-xs text-gray-400 w-18 h-4 overflow-hidden">
+                        {game.category}
+                      </p>
                     )}
 
                   <h3 className="text-md font-semibold">{game.title}</h3>

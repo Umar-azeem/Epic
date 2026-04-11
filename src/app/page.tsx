@@ -1,4 +1,5 @@
 "use client";
+import { AuthProvider } from "@/src/context/AuthContext";
 
 import { redirect } from "next/navigation";
 import Discover from "./home/(group-folder)/inner/discover";

@@ -2,10 +2,18 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     images: {
-    domains: ["res.cloudinary.com"],
-        unoptimized: true
-
-  },
+  unoptimized: true,
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "res.cloudinary.com",
+    },
+    {
+      protocol: "https",
+      hostname: "www.gamerpower.com",
+    },
+  ],
+},
 };
 
 
