@@ -18,7 +18,7 @@ export default function DeveloperForumLayout({
         {/* MAIN LAYOUT */}{" "}
         <main className="flex-1 h-screen overflow-y-auto bg-primary main-scroll">
           {" "}
-          <div className="min-h-full p-6"> {children} </div>{" "}
+          <div className="min-h-full"> {children} </div>{" "}
         </main>
       </SidebarProvider>
     </div>

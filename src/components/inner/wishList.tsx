@@ -5,14 +5,33 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Trash2, Heart, ShoppingBag, Star, Filter, ChevronDown, X, Search } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
+import {
+  Trash2,
+  Heart,
+  ShoppingBag,
+  Star,
+  Filter,
+  ChevronDown,
+  X,
+  Search,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Badge } from "../ui/badge";
 import { Input } from "../ui/input";
 import { Accordion } from "@radix-ui/react-accordion";
-import { AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 
 interface WishlistItem {
   _id: string;
@@ -39,7 +58,13 @@ interface WishlistItem {
 }
 
 // Filter options
-const sortOptions = ["On Sale", "Price: Low to High", "Price: High to Low", "Newest", "Oldest"];
+const sortOptions = [
+  "On Sale",
+  "Price: Low to High",
+  "Price: High to Low",
+  "Newest",
+  "Oldest",
+];
 
 export default function WishlistPage() {
   const { isAuthenticated, token, loading: authLoading } = useAuth();
@@ -50,7 +75,7 @@ export default function WishlistPage() {
   const [removingId, setRemovingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isSubscribed, setIsSubscribed] = useState(true);
-  
+
   // Filter states
   const [sortBy, setSortBy] = useState("On Sale");
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -63,11 +88,39 @@ export default function WishlistPage() {
 
   // Filter configuration
   const filterConfig = {
-    events: ["Deals of the Week", "EA Classic Games on Epic", "First Run", "Spring Sale", "Summer Sale"],
-    priceRanges: ["Free", "Under $5.00", "Under $10.00", "Under $20.00", "$14.99 and above"],
-    genres: ["Action", "Adventure", "RPG", "Shooter", "Simulation", "Strategy", "Puzzle", "Sports"],
-    features: ["Achievements", "Cloud Saves", "Multiplayer", "Single Player", "Co-op", "Cross Platform"],
-    platforms: ["Windows", "Mac OS", "Android", "iOS", "PC", "PS5", "Xbox"]
+    events: [
+      "Deals of the Week",
+      "EA Classic Games on Epic",
+      "First Run",
+      "Spring Sale",
+      "Summer Sale",
+    ],
+    priceRanges: [
+      "Free",
+      "Under $5.00",
+      "Under $10.00",
+      "Under $20.00",
+      "$14.99 and above",
+    ],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG",
+      "Shooter",
+      "Simulation",
+      "Strategy",
+      "Puzzle",
+      "Sports",
+    ],
+    features: [
+      "Achievements",
+      "Cloud Saves",
+      "Multiplayer",
+      "Single Player",
+      "Co-op",
+      "Cross Platform",
+    ],
+    platforms: ["Windows", "Mac OS", "Android", "iOS", "PC", "PS5", "Xbox"],
   };
 
   useEffect(() => {
@@ -85,7 +138,16 @@ export default function WishlistPage() {
 
   useEffect(() => {
     applyFilters();
-  }, [wishlist, sortBy, searchKeyword, selectedEvents, selectedPriceRanges, selectedGenres, selectedFeatures, selectedPlatforms]);
+  }, [
+    wishlist,
+    sortBy,
+    searchKeyword,
+    selectedEvents,
+    selectedPriceRanges,
+    selectedGenres,
+    selectedFeatures,
+    selectedPlatforms,
+  ]);
 
   const fetchWishlist = async () => {
     setError(null);
@@ -96,15 +158,15 @@ export default function WishlistPage() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
-      
+
       if (!res.ok) {
         throw new Error(`Failed to fetch wishlist: ${res.status}`);
       }
-      
+
       const data = await res.json();
-      
+
       let wishlistData = [];
       if (Array.isArray(data)) {
         wishlistData = data;
@@ -113,12 +175,14 @@ export default function WishlistPage() {
       } else if (data.data && Array.isArray(data.data)) {
         wishlistData = data.data;
       }
-      
+
       setWishlist(wishlistData);
       setFilteredWishlist(wishlistData);
     } catch (error) {
       console.error("Error fetching wishlist:", error);
-      setError(error instanceof Error ? error.message : "Failed to load wishlist");
+      setError(
+        error instanceof Error ? error.message : "Failed to load wishlist",
+      );
     } finally {
       setLoading(false);
     }
@@ -155,11 +219,13 @@ export default function WishlistPage() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
-      
+
       if (res.ok) {
-        const updatedWishlist = wishlist.filter((item) => item.gameId !== gameId);
+        const updatedWishlist = wishlist.filter(
+          (item) => item.gameId !== gameId,
+        );
         setWishlist(updatedWishlist);
       }
     } catch (error) {
@@ -174,30 +240,30 @@ export default function WishlistPage() {
 
     // Search by keyword
     if (searchKeyword) {
-      filtered = filtered.filter(item =>
-        item.gameData.title.toLowerCase().includes(searchKeyword.toLowerCase())
+      filtered = filtered.filter((item) =>
+        item.gameData.title.toLowerCase().includes(searchKeyword.toLowerCase()),
       );
     }
 
     // Filter by genres
     if (selectedGenres.length > 0) {
-      filtered = filtered.filter(item =>
-        item.gameData.genre?.some(g => selectedGenres.includes(g))
+      filtered = filtered.filter((item) =>
+        item.gameData.genre?.some((g) => selectedGenres.includes(g)),
       );
     }
 
     // Filter by platforms
     if (selectedPlatforms.length > 0) {
-      filtered = filtered.filter(item =>
-        item.gameData.platforms?.some(p => selectedPlatforms.includes(p))
+      filtered = filtered.filter((item) =>
+        item.gameData.platforms?.some((p) => selectedPlatforms.includes(p)),
       );
     }
 
     // Filter by price ranges
     if (selectedPriceRanges.length > 0) {
-      filtered = filtered.filter(item => {
+      filtered = filtered.filter((item) => {
         const price = getGamePrice(item.gameData);
-        return selectedPriceRanges.some(range => {
+        return selectedPriceRanges.some((range) => {
           if (range === "Free") return price === 0 || item.gameData.isFree;
           if (range === "Under $5.00") return price > 0 && price < 5;
           if (range === "Under $10.00") return price >= 5 && price < 10;
@@ -210,14 +276,17 @@ export default function WishlistPage() {
 
     // Filter by features
     if (selectedFeatures.length > 0) {
-      filtered = filtered.filter(item => {
-        return selectedFeatures.some(feature => {
-          if (feature === "Multiplayer") return item.gameData.platforms?.length > 0;
+      filtered = filtered.filter((item) => {
+        return selectedFeatures.some((feature) => {
+          if (feature === "Multiplayer")
+            return item.gameData.platforms?.length > 0;
           if (feature === "Single Player") return true;
-          if (feature === "Achievements") return item.gameData.rating !== undefined;
+          if (feature === "Achievements")
+            return item.gameData.rating !== undefined;
           if (feature === "Cloud Saves") return true;
           if (feature === "Co-op") return item.gameData.platforms?.length > 0;
-          if (feature === "Cross Platform") return item.gameData.platforms?.length > 1;
+          if (feature === "Cross Platform")
+            return item.gameData.platforms?.length > 1;
           return false;
         });
       });
@@ -225,22 +294,34 @@ export default function WishlistPage() {
 
     // Filter by on sale
     if (sortBy === "On Sale") {
-      filtered = filtered.filter(item => item.gameData.discount && item.gameData.discount > 0);
+      filtered = filtered.filter(
+        (item) => item.gameData.discount && item.gameData.discount > 0,
+      );
     }
 
     // Sort
     switch (sortBy) {
       case "Price: Low to High":
-        filtered.sort((a, b) => getGamePrice(a.gameData) - getGamePrice(b.gameData));
+        filtered.sort(
+          (a, b) => getGamePrice(a.gameData) - getGamePrice(b.gameData),
+        );
         break;
       case "Price: High to Low":
-        filtered.sort((a, b) => getGamePrice(b.gameData) - getGamePrice(a.gameData));
+        filtered.sort(
+          (a, b) => getGamePrice(b.gameData) - getGamePrice(a.gameData),
+        );
         break;
       case "Newest":
-        filtered.sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime());
+        filtered.sort(
+          (a, b) =>
+            new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime(),
+        );
         break;
       case "Oldest":
-        filtered.sort((a, b) => new Date(a.addedAt).getTime() - new Date(b.addedAt).getTime());
+        filtered.sort(
+          (a, b) =>
+            new Date(a.addedAt).getTime() - new Date(b.addedAt).getTime(),
+        );
         break;
     }
 
@@ -249,29 +330,39 @@ export default function WishlistPage() {
 
   const toggleFilter = (type: string, value: string) => {
     switch (type) {
-      case 'events':
-        setSelectedEvents(prev =>
-          prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+      case "events":
+        setSelectedEvents((prev) =>
+          prev.includes(value)
+            ? prev.filter((v) => v !== value)
+            : [...prev, value],
         );
         break;
-      case 'price':
-        setSelectedPriceRanges(prev =>
-          prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+      case "price":
+        setSelectedPriceRanges((prev) =>
+          prev.includes(value)
+            ? prev.filter((v) => v !== value)
+            : [...prev, value],
         );
         break;
-      case 'genre':
-        setSelectedGenres(prev =>
-          prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+      case "genre":
+        setSelectedGenres((prev) =>
+          prev.includes(value)
+            ? prev.filter((v) => v !== value)
+            : [...prev, value],
         );
         break;
-      case 'feature':
-        setSelectedFeatures(prev =>
-          prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+      case "feature":
+        setSelectedFeatures((prev) =>
+          prev.includes(value)
+            ? prev.filter((v) => v !== value)
+            : [...prev, value],
         );
         break;
-      case 'platform':
-        setSelectedPlatforms(prev =>
-          prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+      case "platform":
+        setSelectedPlatforms((prev) =>
+          prev.includes(value)
+            ? prev.filter((v) => v !== value)
+            : [...prev, value],
         );
         break;
     }
@@ -288,11 +379,20 @@ export default function WishlistPage() {
   };
 
   const getActiveFilterCount = () => {
-    return selectedEvents.length + selectedPriceRanges.length + selectedGenres.length + 
-           selectedFeatures.length + selectedPlatforms.length + (searchKeyword ? 1 : 0);
+    return (
+      selectedEvents.length +
+      selectedPriceRanges.length +
+      selectedGenres.length +
+      selectedFeatures.length +
+      selectedPlatforms.length +
+      (searchKeyword ? 1 : 0)
+    );
   };
 
-  const subtotal = filteredWishlist.reduce((sum, item) => sum + getGamePrice(item.gameData), 0);
+  const subtotal = filteredWishlist.reduce(
+    (sum, item) => sum + getGamePrice(item.gameData),
+    0,
+  );
   const totalGames = filteredWishlist.length;
   const activeFilterCount = getActiveFilterCount();
 
@@ -336,7 +436,10 @@ export default function WishlistPage() {
               <span className="text-blue-400">📧</span>
               <span className="text-sm">
                 You are subscribed to wishlist email notifications.{" "}
-                <a href="#" className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1">
+                <a
+                  href="#"
+                  className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1"
+                >
                   Manage Preferences
                 </a>
               </span>
@@ -345,7 +448,9 @@ export default function WishlistPage() {
               <button
                 onClick={() => setIsSubscribed(!isSubscribed)}
                 className={`px-3 py-1 rounded-md text-sm transition ${
-                  isSubscribed ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300'
+                  isSubscribed
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-700 text-gray-300"
                 }`}
               >
                 {isSubscribed ? "Subscribed" : "Subscribe"}
@@ -363,8 +468,10 @@ export default function WishlistPage() {
               onChange={(e) => setSortBy(e.target.value)}
               className="bg-[#1a1a1a] border border-gray-700 rounded-md px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500"
             >
-              {sortOptions.map(option => (
-                <option key={option} value={option}>{option}</option>
+              {sortOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
               ))}
             </select>
             <button
@@ -372,26 +479,31 @@ export default function WishlistPage() {
               className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
             >
               <Filter size={16} />
-              Filters 
-              <ChevronDown size={14} className={`transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+              Filters
+              <ChevronDown
+                size={14}
+                className={`transition-transform ${showFilters ? "rotate-180" : ""}`}
+              />
             </button>
           </div>
           <div className="text-sm text-gray-400">
-            {totalGames} {totalGames === 1 ? 'game' : 'games'} in wishlist
+            {totalGames} {totalGames === 1 ? "game" : "games"} in wishlist
           </div>
         </div>
 
         {/* Main Content: Filters + Games Grid */}
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Filters Sidebar */}
-         
 
           {/* Games List */}
           <div className="flex-1">
             {error && (
               <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-4 mb-6">
                 <p className="text-red-400 text-sm">{error}</p>
-                <button onClick={fetchWishlist} className="mt-2 text-red-400 text-sm underline">
+                <button
+                  onClick={fetchWishlist}
+                  className="mt-2 text-red-400 text-sm underline"
+                >
                   Try Again
                 </button>
               </div>
@@ -401,33 +513,72 @@ export default function WishlistPage() {
             {activeFilterCount > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
                 {searchKeyword && (
-                  <Badge variant="secondary" className="bg-gray-800 text-gray-300 gap-1">
+                  <Badge
+                    variant="secondary"
+                    className="bg-gray-800 text-gray-300 gap-1"
+                  >
                     Search: {searchKeyword}
-                    <X size={12} className="cursor-pointer" onClick={() => setSearchKeyword("")} />
+                    <X
+                      size={12}
+                      className="cursor-pointer"
+                      onClick={() => setSearchKeyword("")}
+                    />
                   </Badge>
                 )}
-                {selectedGenres.map(genre => (
-                  <Badge key={genre} variant="secondary" className="bg-gray-800 text-gray-300 gap-1">
+                {selectedGenres.map((genre) => (
+                  <Badge
+                    key={genre}
+                    variant="secondary"
+                    className="bg-gray-800 text-gray-300 gap-1"
+                  >
                     {genre}
-                    <X size={12} className="cursor-pointer" onClick={() => toggleFilter('genre', genre)} />
+                    <X
+                      size={12}
+                      className="cursor-pointer"
+                      onClick={() => toggleFilter("genre", genre)}
+                    />
                   </Badge>
                 ))}
-                {selectedPlatforms.map(platform => (
-                  <Badge key={platform} variant="secondary" className="bg-gray-800 text-gray-300 gap-1">
+                {selectedPlatforms.map((platform) => (
+                  <Badge
+                    key={platform}
+                    variant="secondary"
+                    className="bg-gray-800 text-gray-300 gap-1"
+                  >
                     {platform}
-                    <X size={12} className="cursor-pointer" onClick={() => toggleFilter('platform', platform)} />
+                    <X
+                      size={12}
+                      className="cursor-pointer"
+                      onClick={() => toggleFilter("platform", platform)}
+                    />
                   </Badge>
                 ))}
-                {selectedPriceRanges.map(range => (
-                  <Badge key={range} variant="secondary" className="bg-gray-800 text-gray-300 gap-1">
+                {selectedPriceRanges.map((range) => (
+                  <Badge
+                    key={range}
+                    variant="secondary"
+                    className="bg-gray-800 text-gray-300 gap-1"
+                  >
                     {range}
-                    <X size={12} className="cursor-pointer" onClick={() => toggleFilter('price', range)} />
+                    <X
+                      size={12}
+                      className="cursor-pointer"
+                      onClick={() => toggleFilter("price", range)}
+                    />
                   </Badge>
                 ))}
-                {selectedFeatures.map(feature => (
-                  <Badge key={feature} variant="secondary" className="bg-gray-800 text-gray-300 gap-1">
+                {selectedFeatures.map((feature) => (
+                  <Badge
+                    key={feature}
+                    variant="secondary"
+                    className="bg-gray-800 text-gray-300 gap-1"
+                  >
                     {feature}
-                    <X size={12} className="cursor-pointer" onClick={() => toggleFilter('feature', feature)} />
+                    <X
+                      size={12}
+                      className="cursor-pointer"
+                      onClick={() => toggleFilter("feature", feature)}
+                    />
                   </Badge>
                 ))}
               </div>
@@ -440,10 +591,14 @@ export default function WishlistPage() {
                 </div>
                 <p className="text-gray-400 text-lg">Your wishlist is empty</p>
                 <p className="text-gray-500 text-sm mt-2">
-                  {wishlist.length > 0 ? "No games match your filters" : "Save your favorite games here!"}
+                  {wishlist.length > 0
+                    ? "No games match your filters"
+                    : "Save your favorite games here!"}
                 </p>
                 <button
-                  onClick={() => wishlist.length > 0 ? clearFilters() : router.push("/")}
+                  onClick={() =>
+                    wishlist.length > 0 ? clearFilters() : router.push("/")
+                  }
                   className="mt-6 bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition"
                 >
                   {wishlist.length > 0 ? "Clear Filters" : "Start Browsing"}
@@ -452,12 +607,19 @@ export default function WishlistPage() {
             ) : (
               <div className="space-y-4">
                 {filteredWishlist.map((item) => (
-                  <Card key={item._id} className="bg-[#202024] border-[#2a2a2f] text-white hover:border-gray-700 transition">
+                  <Card
+                    key={item._id}
+                    className="bg-[#202024] border-[#2a2a2f] text-white hover:border-gray-700 transition"
+                  >
                     <CardContent className="p-6 flex md:flex-row flex-col gap-5">
                       {/* Game Image */}
-                      <div 
+                      <div
                         className="relative cursor-pointer"
-                        onClick={() => router.push(`/game/${item.gameData.slug || item.gameId}`)}
+                        onClick={() =>
+                          router.push(
+                            `/game/${item.gameData.slug || item.gameId}`,
+                          )
+                        }
                       >
                         <Image
                           src={getGameImage(item.gameData)}
@@ -466,14 +628,16 @@ export default function WishlistPage() {
                           height={160}
                           className="rounded-md w-full h-48 md:w-32 md:h-40 object-cover"
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = "https://placehold.co/400x600/1e1e22/ffffff?text=No+Image";
+                            (e.target as HTMLImageElement).src =
+                              "https://placehold.co/400x600/1e1e22/ffffff?text=No+Image";
                           }}
                         />
-                        {item.gameData.discount && item.gameData.discount > 0 && (
-                          <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
-                            -{item.gameData.discount}%
-                          </div>
-                        )}
+                        {item.gameData.discount &&
+                          item.gameData.discount > 0 && (
+                            <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
+                              -{item.gameData.discount}%
+                            </div>
+                          )}
                       </div>
 
                       {/* Game Info */}
@@ -481,13 +645,43 @@ export default function WishlistPage() {
                         <span className="inline-block bg-[#2a2a2f] px-2 py-0.5 text-xs rounded">
                           Base Game
                         </span>
-                        <h3 
+                        <h3
                           className="text-lg font-semibold cursor-pointer hover:text-blue-400 transition"
-                          onClick={() => router.push(`/game/${item.gameData.slug || item.gameId}`)}
+                          onClick={() =>
+                            router.push(
+                              `/game/${item.gameData.slug || item.gameId}`,
+                            )
+                          }
                         >
                           {item.gameData.title}
                         </h3>
+                        <Card className="w-full text-white flex p-0 flex-row max-w-sm bg-transparent border border-text-clr/60">
+                          <div className="w-full flex p-3">
+                            {" "}
+                            <div className="border-2 border-black w-[60px] h-[60px]">
+                              <div className="w-[49px] border-4 border-white font-sans">
+                                <div className="flex w-[45px] text-[10px] justify-between items-center border bg-#292929 text-white px-2 py-1  font-semibold tracking-widest">
+                                  <span>I</span>
+                                  <span>A</span>
+                                  <span>R</span>
+                                  <span>C</span>
+                                </div>
 
+                                <div className="flex w-[45px]  items-center justify-center bg-gray-100 ">
+                                  <span className="text-md  font-bold text-gray-900">
+                                    16+
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <CardHeader className="w-full p-2">
+                              <CardTitle className="">7+</CardTitle>
+                              <CardDescription>
+                                Fear, Mild Violence{" "}
+                              </CardDescription>
+                            </CardHeader>
+                          </div>
+                        </Card>
                         <div className="flex items-center gap-2 text-sm text-yellow-400">
                           <Star className="w-4 h-4 fill-yellow-400" />
                           <span>Earn 5% back in Epic Rewards</span>
@@ -499,10 +693,32 @@ export default function WishlistPage() {
                             disabled={removingId === item.gameId}
                             className="text-sm text-gray-400 hover:text-red-500 transition"
                           >
-                            {removingId === item.gameId ? "Removing..." : "Remove"}
+                            {removingId === item.gameId
+                              ? "Removing..."
+                              : "Remove"}
                           </button>
+                          {/* <Button
+                            onClick={() =>
+                              router.push(
+                                `/checkout/${item.gameData._id || item.gameId}`,
+                              )
+                            }
+                            variant="outline"
+                            className="text-white hover:text-white bg-transparent border-gray-700 hover:bg-gray-800"
+                          >
+                            <ShoppingBag size={14} className="mr-2" />
+                            Add To Cart
+                          </Button> */}
                           <Button
-                            onClick={() => router.push(`/checkout/${item.gameData._id || item.gameId}`)}
+                            onClick={() => {
+                              const game = item.gameData;
+                              const price =
+                                game.currentPrice || game.price || 0;
+                              const image = getGameImage(game);
+                              router.push(
+                                `/home/cart?gameId=${item.gameId}&title=${encodeURIComponent(game.title)}&price=${price}&image=${encodeURIComponent(image)}`,
+                              );
+                            }}
                             variant="outline"
                             className="text-white hover:text-white bg-transparent border-gray-700 hover:bg-gray-800"
                           >
@@ -514,7 +730,8 @@ export default function WishlistPage() {
 
                       {/* Price */}
                       <div className="text-right">
-                        {item.gameData.discount && item.gameData.discount > 0 ? (
+                        {item.gameData.discount &&
+                        item.gameData.discount > 0 ? (
                           <div>
                             <span className="text-gray-400 line-through text-sm">
                               ${getOriginalPrice(item.gameData).toFixed(2)}
@@ -535,8 +752,10 @@ export default function WishlistPage() {
               </div>
             )}
           </div>
- <div className={`${showFilters ? 'block' : 'hidden'} lg:block w-64 flex-shrink-0`}>
-            <Filters 
+          <div
+            className={`${showFilters ? "block" : "hidden"} lg:block w-64 flex-shrink-0`}
+          >
+            <Filters
               searchKeyword={searchKeyword}
               setSearchKeyword={setSearchKeyword}
               selectedEvents={selectedEvents}
@@ -551,7 +770,6 @@ export default function WishlistPage() {
             />
           </div>
           {/* Summary Card */}
-         
         </div>
       </div>
     </div>
@@ -566,10 +784,15 @@ type FilterSectionProps = {
   onToggle: (value: string) => void;
 };
 
-const FilterSection = ({ title, items, selectedItems, onToggle }: FilterSectionProps) => {
+const FilterSection = ({
+  title,
+  items,
+  selectedItems,
+  onToggle,
+}: FilterSectionProps) => {
   return (
     <AccordionItem value={title} className="">
-      <AccordionTrigger  className="text-sm font-medium text-white hover:no-underline ">
+      <AccordionTrigger className="text-sm font-medium text-white hover:no-underline ">
         {title}
       </AccordionTrigger>
       <AccordionContent>
@@ -593,7 +816,6 @@ const FilterSection = ({ title, items, selectedItems, onToggle }: FilterSectionP
           ))}
         </ul>
       </AccordionContent>
-      
     </AccordionItem>
   );
 };
@@ -640,7 +862,10 @@ function Filters({
           Filters {activeFilterCount > 0 && `(${activeFilterCount})`}
         </h2>
         {activeFilterCount > 0 && (
-          <button onClick={clearFilters} className="text-blue-400 text-sm hover:text-blue-300">
+          <button
+            onClick={clearFilters}
+            className="text-blue-400 text-sm hover:text-blue-300"
+          >
             Reset all
           </button>
         )}
@@ -671,35 +896,35 @@ function Filters({
           title="Events"
           items={filterConfig.events}
           selectedItems={selectedEvents}
-          onToggle={(value) => toggleFilter('events', value)}
+          onToggle={(value) => toggleFilter("events", value)}
         />
 
         <FilterSection
           title="Price"
           items={filterConfig.priceRanges}
           selectedItems={selectedPriceRanges}
-          onToggle={(value) => toggleFilter('price', value)}
+          onToggle={(value) => toggleFilter("price", value)}
         />
 
         <FilterSection
           title="Genre"
           items={filterConfig.genres}
           selectedItems={selectedGenres}
-          onToggle={(value) => toggleFilter('genre', value)}
+          onToggle={(value) => toggleFilter("genre", value)}
         />
 
         <FilterSection
           title="Features"
           items={filterConfig.features}
           selectedItems={selectedFeatures}
-          onToggle={(value) => toggleFilter('feature', value)}
+          onToggle={(value) => toggleFilter("feature", value)}
         />
 
         <FilterSection
           title="Platform"
           items={filterConfig.platforms}
           selectedItems={selectedPlatforms}
-          onToggle={(value) => toggleFilter('platform', value)}
+          onToggle={(value) => toggleFilter("platform", value)}
         />
       </Accordion>
     </div>

@@ -11,6 +11,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import SearchGameList from "./inner/SearchGameList";
+import EpicStyleSearch from "./inner/SearchGameList";
 import { useGameStore } from "../json/apiStore";
 
 export default function Header() {
@@ -19,28 +20,18 @@ export default function Header() {
   const pathname = usePathname();
   // Example with useState
   const [gamesData, setGamesData] = useState(null);
-
-  // Fetch your data
-  useEffect(() => {
-    const fetchGames = async () => {
-      const response = await fetch("/api/games"); // Your API endpoint
-      const data = await response.json();
-      setGamesData(data);
-    };
-    fetchGames();
-  }, []);
-
-  const games = useGameStore((s) => s.games);
+const games = useGameStore((s) => s.games);
   const fetchGames = useGameStore((s) => s.fetchGames);
-
-  useEffect(() => {
+ useEffect(() => {
     fetchGames();
   }, [fetchGames]);
 
-  // Debug: Check if games are loading
+  // Use the games from store instead of separate API call
   useEffect(() => {
-    console.log("Games in header:", games);
-    console.log("Games length:", games?.length);
+    if (games && games.length > 0) {
+      setGamesData({ games: games });
+      console.log("Games loaded:", games); // Debug log
+    }
   }, [games]);
 
   const navLinkClass = (path: string, currentPath: string) =>
@@ -50,6 +41,20 @@ export default function Header() {
         : "text-gray-400 hover:text-white"
     }`;
 
+
+
+  useEffect(() => {
+    fetchGames();
+  }, [fetchGames]);
+  // Fetch your data
+  useEffect(() => {
+    const fetchGames = async () => {
+      const response = await fetch("/api/games"); // Your API endpoint
+      const data = await response.json();
+      setGamesData(data);
+    };
+    fetchGames();
+  }, []);
   return (
     <>
       <header className="hidden md:block bg-app-secondary sticky top-0 z-50">
@@ -67,7 +72,14 @@ export default function Header() {
                 />
               </div> */}
               <div className="relative">
-                <SearchGameList gamesData={games} />
+                <div className="flex items-center gap-6">
+        <h1 className="text-white font-bold">EPIC GAMES</h1>
+        {/* ... other nav items */}
+      </div>
+      
+      {/* Search Component */}
+      <EpicStyleSearch gamesData={gamesData} />
+      
               </div>
               <nav className="flex gap-1 text-white text-lg font-semibold p-1">
                 <Link
