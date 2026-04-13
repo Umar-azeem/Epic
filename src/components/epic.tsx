@@ -22,9 +22,9 @@ const createMenu = [
   { label: "Twinmotion", icon: Twinmotion, href:"https://www.twinmotion.com/?lang=en-US" },
   { label: "RealityScan", icon: RealityScan , href:"https://www.realityscan.com/"},
   { label: "Epic Online Services", icon: EpicGame, href:"/Epiconlineservices" },
-  { label: "Publish on Epic Games Store", icon: EpicGame , href:"/Epicdistribution"},
-  { label: "Kids Web Services", icon: KidsWeb , href:"/KidsWebServices"},
-  { label: "Developer Community", icon: EpicGame , href:"/DeveloperCommunity"},
+  { label: "Publish on Epic Games Store", icon: EpicGame , href:"/developerForum/Epicdistribution"},
+  { label: "Kids Web Services", icon: KidsWeb , href:"/developerForum/KidsWebServices"},
+  { label: "Developer Community", icon: EpicGame , href:"/developerForum"},
 ];
 const discoverMenu = [
   {

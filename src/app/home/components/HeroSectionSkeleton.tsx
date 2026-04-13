@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { HeroSectionSkeleton } from "./HeroSectionSkeleton";
 
 interface Game {
   _id: string;
@@ -9,33 +10,49 @@ interface Game {
   mainImage?: string;
   coverImage?: string | null;
   featured?: boolean;
+  label?: string;
 }
 
 interface HeroSectionProps {
   games: Game[];
   label?: string; // optional, default "hero"
+  isLoading?: boolean; // Add loading prop
 }
 
-export default function HeroSection({ games, label = "hero" }: HeroSectionProps) {
-   const [activeIndex, setActiveIndex] = useState(0);
+export default function HeroSection({ games, label = "hero", isLoading = false }: HeroSectionProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
   const VISIBLE_COUNT = 6;
-   const allGames = Array.isArray(games) ? games : (games as any)?.games ?? [];
+  const allGames = Array.isArray(games) ? games : (games as any)?.games ?? [];
   const gameList = allGames.filter(
-  (game) => (game.label ?? "").trim().toLowerCase() === label.toLowerCase()
-);  
+    (game) => (game.label ?? "").trim().toLowerCase() === label.toLowerCase()
+  );
 
   const maxIndex = Math.min(VISIBLE_COUNT, gameList.length);
 
+  // Show skeleton while loading
+  if (isLoading) {
+    return <HeroSectionSkeleton />;
+  }
+
+  // Show nothing if no games and not loading
+  if (gameList.length === 0) {
+    return (
+      <div className="text-white px-4 py-4">
+        <p className="text-gray-400">No games found for {label}</p>
+      </div>
+    );
+  }
+
   useEffect(() => {
-  if (gameList.length === 0) return; 
-  const interval = setInterval(() => {
-    setActiveIndex((prev) => (prev === maxIndex - 1 ? 0 : prev + 1));
-  }, 5000);
-  return () => clearInterval(interval);
-}, [gameList.length, maxIndex]);
+    if (gameList.length === 0) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev === maxIndex - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [gameList.length, maxIndex]);
 
   const getMainImage = (game: Game) =>
     game.mainImage || game.coverImage || game.image || "/placeholder.png";
@@ -54,23 +71,14 @@ export default function HeroSection({ games, label = "hero" }: HeroSectionProps)
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    if (distance > 50) setActiveIndex((prev) => (prev + 1) % maxIndex);
-    if (distance < -50) setActiveIndex((prev) => (prev - 1 + maxIndex) % maxIndex);
+    if (distance > 50 && maxIndex > 0) setActiveIndex((prev) => (prev + 1) % maxIndex);
+    if (distance < -50 && maxIndex > 0) setActiveIndex((prev) => (prev - 1 + maxIndex) % maxIndex);
     setTouchStart(0);
     setTouchEnd(0);
   };
 
-  if (gameList.length === 0) return null;
-
   const visibleGames = gameList.slice(0, VISIBLE_COUNT);
-  
- if (!gameList.length) {
-    return (
-      <div className="text-white px-4 py-4" >
-        <p className="text-gray-400">No games found for {label}</p>
-      </div>
-    );
-  }
+
   return (
     <div className="space-y-6">
       {/* Desktop */}
@@ -95,14 +103,14 @@ export default function HeroSection({ games, label = "hero" }: HeroSectionProps)
         <div className="col-span-3 space-y-3">
           {visibleGames.map((game, index) => (
             <button
-              key={game._id} 
+              key={game._id}
               onClick={() => setActiveIndex(index)}
               className={`hover:bg-[#343437] flex items-center gap-3 p-2 rounded-md w-full ${
                 index === activeIndex ? "bg-[#343437] animate-sweep" : ""
               }`}
             >
               <Image
-                src={getThumbnail(game)} 
+                src={getThumbnail(game)}
                 className="w-10 h-14 object-cover rounded"
                 alt={game.title}
                 width={40}
@@ -129,15 +137,13 @@ export default function HeroSection({ games, label = "hero" }: HeroSectionProps)
           >
             {visibleGames.map((game) => (
               <div key={game._id} className="w-full flex-shrink-0">
-                {" "}
-                {/* ✅ _id */}
                 <Image
-                  src={getMainImage(game)} // ✅ fallback chain
+                  src={getMainImage(game)}
                   className="h-[300px] w-full object-cover"
                   alt={game.title}
-                    width={400}
-                    height={300}
-                    priority
+                  width={400}
+                  height={300}
+                  priority
                 />
               </div>
             ))}
@@ -149,7 +155,7 @@ export default function HeroSection({ games, label = "hero" }: HeroSectionProps)
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`h-1.5 rounded-full ${
+              className={`h-1.5 rounded-full transition-all ${
                 i === activeIndex ? "w-6 bg-white" : "w-2 bg-gray-500"
               }`}
             />

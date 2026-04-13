@@ -276,10 +276,7 @@ export default function GenresSection() {
       </div>
     );
 
-
-
   /* ════════ LIST VIEW (card grid) ════════ */
-
 
   return (
     <div className="flex-1 overflow-y-auto px-6 py-6">
@@ -310,13 +307,16 @@ export default function GenresSection() {
               <CardContent className="p-4">
                 <div className="flex items-start justify-between mb-3">
                   <Image
-                    src={g.icon}
+                    src={g.icon || "/default-icon.png"}
                     alt="icon"
-                    width={100}
-                    height={100}
-                    className="object-contain w-12 h-12 rounded-xl"
+                    width={24}
+                    height={24}
+                    onError={(e) => {
+                      e.currentTarget.src = "/fallback-icon.png";
+                    }}
                     priority
                   />
+
                   <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     <Button
                       variant="outline"
