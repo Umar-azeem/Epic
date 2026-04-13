@@ -17,9 +17,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-app-secondary ">
         <PathAwareWrapper>{children}</PathAwareWrapper>
-       
       </body>
     </html>
   );
 }
- 
+

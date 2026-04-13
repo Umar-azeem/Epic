@@ -41,84 +41,28 @@ export function LoginForm() {
     setLoading(true);
 
     try {
-      console.log("1. Sending login request to backend...");
-      
-      const res = await fetch(
-        "https://epic-backend-fslq.vercel.app/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        },
-      );
+      // Use the login function from useAuth hook
+      const result = await login(email, password);
 
-      console.log("2. Response status:", res.status);
-      
-      const data = await res.json();
-      console.log("3. Response data:", data);
+      if (result.success) {
+        console.log("Login successful!");
 
-      if (!res.ok) {
-        throw new Error(data.message || "Login failed");
-      }
+        // Check for redirect after login
+        const redirectTo = localStorage.getItem("redirectAfterLogin");
 
-      // ✅ SAVE TOKEN in localStorage AND AuthContext
-      if (data.token) {
-        console.log("4. Token received, saving to localStorage");
-        localStorage.setItem("token", data.token);
-        
-        // ✅ Extract user data from token or response
-        let userData = data.user;
-        
-        // If backend doesn't send user object, decode from token
-        if (!userData && data.token) {
-          try {
-            console.log("5. Decoding token to get user data");
-            const base64Url = data.token.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const decoded = JSON.parse(atob(base64));
-            userData = { id: decoded.id, email: decoded.email, role: decoded.role };
-            console.log("6. Decoded user data:", userData);
-          } catch (e) {
-            console.error("Failed to decode token", e);
-          }
+        if (redirectTo) {
+          // Remove the redirect item from localStorage
+          localStorage.removeItem("redirectAfterLogin");
+          // Redirect to the saved path (wishlist or any other page)
+          router.push(redirectTo);
+        } else {
+          // Default redirect to home
+          router.push("/");
         }
-        
-        console.log("7. Calling login() from AuthContext with:", { token: data.token.substring(0, 20) + "...", userData });
-        
-        // Store in context
-        login(data.token, userData);
       } else {
-        console.error("No token in response!");
-        throw new Error("No token received from server");
+        setError(result.message || "Login failed");
       }
 
-      console.log("Login success:", data);
-
-      // ✅ CHECK FOR REDIRECT AFTER LOGIN (WISHLIST OR OTHER PAGE)
-      const redirectTo = localStorage.getItem("redirectAfterLogin");
-      console.log("8. Redirect to:", redirectTo || "default");
-      
-      // if (redirectTo) {
-      //   // Remove the redirect item from localStorage
-      //   localStorage.removeItem("redirectAfterLogin");
-      //   // Redirect to the saved path (wishlist or any other page)
-      //   router.push(redirectTo);
-      // } else {
-      //   // No saved redirect, use role-based redirect
-      //   if (data.user?.role === "admin") {
-      //     console.log("9. Redirecting to /admin");
-      //     router.push("/admin");
-      //   } else {
-      //     console.log("9. Redirecting to /");
-      //     router.push("/");
-      //   }
-      // }
-      
     } catch (err: any) {
       console.error("Login error:", err);
       setError(err.message || "Failed to login. Please try again.");
@@ -173,7 +117,7 @@ export function LoginForm() {
 
         <Button
           type="submit"
-          disabled={loading || emailError}
+          disabled={loading || !!emailError}
           className="w-full bg-btn-primary hover:bg-btn-primary/60 disabled:bg-slate-600 text-slate-900 font-semibold h-12 rounded-lg"
         >
           {loading ? "Logging in..." : "Continue"}

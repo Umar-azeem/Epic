@@ -1,50 +1,38 @@
-// src/app/admin/layout.tsx
-// export default function AdminLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   return <>{children}</>;
-// }
-
-
-// src/app/admin/layout.tsx
-// src/app/admin/layout.tsx - Temporary fix
 "use client";
 
-import { useAuth } from "@/src/context/AuthContext";
+import { useIsAdmin } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function AdminLayout({
+
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated, token, loading } = useAuth();
+  const isAdmin = useIsAdmin();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading) {
-      if (!isAuthenticated || !token) {
-        console.log("Not authenticated, redirecting to login...");
-        localStorage.setItem("redirectAfterLogin", "/admin");
-        router.push("/login");
-      }
+    if (!isAdmin) {
+      console.log("Not authenticated, redirecting to login...");
+      localStorage.setItem("redirectAfterLogin", "/admin");
+      router.push("/auth");
     }
-  }, [loading, isAuthenticated, token, router]);
+  }, [isAdmin]);
+  //
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center bg-[#121212]">
+  //       <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500"></div>
+  //     </div>
+  //   );
+  // }
+  //
+  // if (!isAuthenticated || !token) {
+  //   return null;
+  // }
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#121212]">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500"></div>
-      </div>
-    );
-  }
 
-  if (!isAuthenticated || !token) {
-    return null;
-  }
-
-  return <>{children}</>;
+  return (<>{children}</>)
 }

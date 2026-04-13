@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "@/src/components/header";
-import { AuthProvider } from "@/src/context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,18 +31,16 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {/* ✅ AuthProvider should wrap everything that uses useAuth() */}
-        <AuthProvider>
-          <Header />
-          <main className="w-full max-w-5xl mx-auto">
-            {children}
-          </main>
-          <div className="max-w-5xl mx-auto border-t border-text-clr w-full text-white flex py-10 bg-app-secondary">
-            <h5 className="text-white text-xs">
-              * The lowest price offered on The Epic Games Store in the last 30
-              days before discount
-            </h5>
-          </div>
-        </AuthProvider>
+        <Header />
+        <main className="w-full max-w-5xl mx-auto">
+          {children}
+        </main>
+        <div className="max-w-5xl mx-auto border-t border-text-clr w-full text-white flex py-10 bg-app-secondary">
+          <h5 className="text-white text-xs">
+            * The lowest price offered on The Epic Games Store in the last 30
+            days before discount
+          </h5>
+        </div>
       </body>
     </html>
   );

@@ -1,78 +1,171 @@
-// src/context/AuthContext.tsx
-"use client";
+import { useAtom, useAtomValue } from 'jotai'
+import { atomWithStorage } from 'jotai/utils'
+import { useEffect } from 'react'
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+const BASE_URL = 'https://epic-backend-fslq.vercel.app/api'
 
-interface User {
-  id: string;
-  email: string;
-  role?: string;
-}
+export const userAtom = atomWithStorage('user', {
+  "_id": "",
+  "name": "",
+  "email": "",
+  "password": "",
+  "role": "",
+  "createdAt": "",
+  "updatedAt": "",
+  "__v": 0,
+  "wishlist": [],
+  "purchasedGames": []
+})
 
-interface AuthContextType {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-  isAdmin: boolean;
-  loading: boolean;
-  login: (token: string, user: User) => void;
-  logout: () => void;
-}
+export const tokenAtom = atomWithStorage<string | null>('token', null)
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const useAuth = () => {
+  const [user, setUser] = useAtom(userAtom)
+  const [token, setToken] = useAtom(tokenAtom)
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
+  // Fetch user data on mount if token exists but user data is empty
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      try {
-        const payload = JSON.parse(atob(storedToken.split(".")[1]));
-        setUser({ id: payload.id, email: payload.email, role: payload.role });
-        setToken(storedToken);
-      } catch (e) {
-        localStorage.removeItem("token");
-      }
+    if (token && !user._id) {
+      getUser()
     }
-    setLoading(false);
-  }, []);
+  }, [])
 
-  const login = (newToken: string, userData: User) => {
-    localStorage.setItem("token", newToken);
-    setToken(newToken);
-    setUser(userData);
-  };
+  const login = async (email: string, password: string) => {
+    try {
+      const response = await fetch(`${BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setToken(data.token)
+        setUser(data.user)
+        localStorage.setItem('token', data.token)
+        return { success: true, message: data.message }
+      } else {
+        return { success: false, message: data.message || 'Login failed' }
+      }
+    } catch (error) {
+      console.error('Login error:', error)
+      return { success: false, message: 'Network error. Please try again.' }
+    }
+  }
+
+  const signup = async (name: string, email: string, password: string) => {
+    try {
+      const response = await fetch(`${BASE_URL}/auth/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setToken(data.token)
+        setUser(data.user)
+        localStorage.setItem('token', data.token)
+        return { success: true, message: data.message }
+      } else {
+        return { success: false, message: data.message || 'Signup failed' }
+      }
+    } catch (error) {
+      console.error('Signup error:', error)
+      return { success: false, message: 'Network error. Please try again.' }
+    }
+  }
+
+  const getUser = async () => {
+    const storedToken = token || localStorage.getItem('token')
+
+    if (!storedToken) {
+      return { success: false, message: 'No token found' }
+    }
+
+    try {
+      const response = await fetch(`${BASE_URL}/auth/get-user`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${storedToken}`,
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.user) {
+        setUser(data.user[0]) // API returns array, get first user
+        return { success: true, user: data.user[0] }
+      } else {
+        // Clear invalid token
+        setToken(null)
+        setUser({
+          "_id": "",
+          "name": "",
+          "email": "",
+          "password": "",
+          "role": "",
+          "createdAt": "",
+          "updatedAt": "",
+          "__v": 0,
+          "wishlist": [],
+          "purchasedGames": []
+        })
+        localStorage.removeItem('token')
+        return { success: false, message: 'Failed to fetch user' }
+      }
+    } catch (error) {
+      console.error('Get user error:', error)
+      return { success: false, message: 'Network error. Please try again.' }
+    }
+  }
 
   const logout = () => {
-    localStorage.removeItem("token");
-    setToken(null);
-    setUser(null);
-  };
-
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-        token,
-        isAuthenticated: !!token,
-        isAdmin: user?.role === "admin",
-        loading,
-        login,
-        logout,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within AuthProvider");
+    setToken(null)
+    setUser({
+      "_id": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": "",
+      "createdAt": "",
+      "updatedAt": "",
+      "__v": 0,
+      "wishlist": [],
+      "purchasedGames": []
+    })
+    localStorage.removeItem('token')
   }
-  return context;
+
+  const isAuthenticated = user.role === 'user' || user.role === 'admin'
+
+  return {
+    user,
+    login,
+    signup,
+    logout,
+    getUser,
+    isAuthenticated,
+    token
+  }
 }
+
+export const useIsAdmin = () => {
+  const userValue = useAtomValue(userAtom)
+  if (userValue.email !== '') {
+    if (userValue.role === 'admin') {
+      return true
+    }
+    return false
+  }
+  return false
+}
+
+// setUser({ id: payload.id, email: payload.email, role: payload.role });
