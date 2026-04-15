@@ -27,16 +27,28 @@ import {
   UnrealEngine,
 } from "@/src/components/icons/indexs";
 import Link from "next/link";
+// Define the Game interface at the top of your file
+interface Game {
+  _id: string;
+  title: string;
+  category: string;
+  image: string;
+  price: number;
+  // ... other properties your game has
+}
 
 const Devforum = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const games: any = useGameStore((s) => s.games);
   const fetchGames = useGameStore((s) => s.fetchGames);
 
+  
   useEffect(() => {
     fetchGames();
   }, [fetchGames]);
 
-  const gameArray = games?.games?.filter((g) => g.category !== "");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const gameArray = games?.games?.filter(((g: Game) => g.category !== "")) || [];
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -275,7 +287,8 @@ const Devforum = () => {
             className="flex gap-4 overflow-x-auto max-w-full pb-2 scrollbar-hide overflow-y-hidden"
             ref={scrollContainerRef}
           >
-            {gameArray?.map((game) => (
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            {gameArray?.map((game:any) => (
               <div
                 key={game._id}
                 className="bg-trans max-w-[220] bg- rounded-lg p-4 bg-app bg-blur hover:bg-text-clr transition-colors cursor-pointer flex-shrink-0"

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 interface Game {
   _id: string;
   title: string;
+  label:string;
   image: string;
   mainImage?: string;
   coverImage?: string | null;
@@ -24,7 +25,7 @@ export default function HeroSection({ games, label = "hero" }: HeroSectionProps)
   const VISIBLE_COUNT = 6;
    const allGames = Array.isArray(games) ? games : (games as any)?.games ?? [];
   const gameList = allGames.filter(
-  (game) => (game.label ?? "").trim().toLowerCase() === label.toLowerCase()
+  (game: Game) => (game.label ?? "").trim().toLowerCase() === label.toLowerCase()
 );  
 
   const maxIndex = Math.min(VISIBLE_COUNT, gameList.length);

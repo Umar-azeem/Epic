@@ -9,7 +9,20 @@ import Fortnite from "./Fortnite";
 import GamesList from "./gameList";
 import { Spinner } from "@/src/components/ui/spinner";
 import GamesListCustom from "./GamesListCustom";
-
+// types/game.ts
+export interface Game {
+  _id: string;
+  title: string;
+  price: number;
+  originalPrice?: number;
+  currentPrice?: number;
+  discount?: number;
+  image: string;
+  label?: string;
+  category?: string;
+  tag?: string;
+  thumbnail?: string;
+}
 const Discover = () => {
   const games = useGameStore((s) => s.games);
   const fetchGames = useGameStore((s) => s.fetchGames);
