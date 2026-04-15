@@ -4,6 +4,8 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
+import { useAuth } from "@/src/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export function SignupForm() {
   const [formData, setFormData] = useState({
@@ -22,6 +24,9 @@ export function SignupForm() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const { signup } = useAuth();
+  const router = useRouter();
 
   const isValidEmail = (e: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
@@ -64,7 +69,9 @@ export function SignupForm() {
       password: true,
       confirmPassword: true,
     });
-    if (!formData.name || formData.name !== "" ) {
+
+    // Fix the name validation logic
+    if (!formData.name || formData.name.trim() === "") {
       setError("Please enter a name");
       return;
     }
@@ -87,32 +94,18 @@ export function SignupForm() {
     setLoading(true);
 
     try {
-      const res = await fetch(
-        "https://epic-backend-fslq.vercel.app/api/auth/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: formData.email,
-            password: formData.password,
-          }),
-        },
-      );
+      // Use the signup function from useAuth hook
+      const result = await signup(formData.name, formData.email, formData.password);
 
-      const data = await res.json();
+      if (result.success) {
+        console.log("Signup successful!");
 
-      if (!res.ok) {
-        throw new Error(data.message || "Signup failed");
+        // Redirect to home page after successful signup
+        router.push("/");
+      } else {
+        setError(result.message || "Signup failed");
       }
 
-      console.log("Signup success:", data);
-
-      alert("Account created successfully 🎉");
-
-      // OPTIONAL: auto redirect to login page
-      // window.location.href = '/login';
     } catch (err: any) {
       setError(err.message || "Failed to create account");
     } finally {
@@ -134,7 +127,7 @@ export function SignupForm() {
                   height={100}
                   className="w-[42px] h-[48px] bg-white rounded-xs"
                 />
-                <h1 className="text-2xl font-bold text-white">Sign in to Epic Games</h1>
+                <h1 className="text-2xl font-bold text-white">Create Epic Games Account</h1>
                 </div>
         {/* EMAIL */}
          <Input

@@ -6,28 +6,35 @@ import {
   Search,
   SearchIcon,
   ShoppingCart,
+  User,
+  LogOut
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/src/context/AuthContext";
 import SearchGameList from "./inner/SearchGameList";
 import { useGameStore } from "../json/apiStore";
 
 export default function Header() {
   const [searchText, setSearchText] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const { user, logout, isAuthenticated } = useAuth();
+
   // Example with useState
   const [gamesData, setGamesData] = useState(null);
 
   // Fetch your data
   useEffect(() => {
-    const fetchGames = async () => {
+    const fetchGamesData = async () => {
       const response = await fetch("/api/games"); // Your API endpoint
       const data = await response.json();
       setGamesData(data);
     };
-    fetchGames();
+    fetchGamesData();
   }, []);
 
   const games = useGameStore((s) => s.games);
@@ -49,6 +56,12 @@ export default function Header() {
         ? "text-white"
         : "text-gray-400 hover:text-white"
     }`;
+
+  const handleLogout = () => {
+    logout();
+    router.push("/auth");
+    setUserMenuOpen(false);
+  };
 
   return (
     <>
@@ -109,6 +122,29 @@ export default function Header() {
               >
                 Cart
               </Link>
+
+              {/* User info and logout */}
+              {isAuthenticated ? (
+                <>
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <User className="w-4 h-4" />
+                    <span className="text-sm">{user.name || user.email?.split('@')[0] || 'User'}</span>
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/auth"
+                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -145,6 +181,12 @@ export default function Header() {
                 1
               </span>
             </Link>
+            {isAuthenticated && (
+              <div className="flex items-center gap-2">
+                <User className="w-4 h-4 text-white" />
+                <span className="text-xs text-white">{user.name?.split(' ')[0] || 'User'}</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -191,6 +233,22 @@ export default function Header() {
               >
                 News
               </Link>
+
+              {/* Add logout option in mobile menu */}
+              {isAuthenticated && (
+                <>
+                  <div className="h-px bg-gray-800 mx-6" />
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="block w-full text-left px-6 py-4 text-base font-medium text-gray-400 hover:text-white hover:bg-gray-900"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
             </nav>
           </div>
         )}

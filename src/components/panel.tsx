@@ -20,12 +20,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { dealOfTheWeek } from "./ui/dealOfTheWeek";
 import { Switch } from "./ui/switch";
 
-import { stringify } from "querystring";
 
-import axios from "axios";
 import ManagesGames from "./managesGames";
 import { useGameStore } from "../json/apiStore";
 interface GameItem {
@@ -89,7 +86,7 @@ const SECTION_KEYS = [
   "Top Player Rated",
   "Coming Soon",
 ];
-const PRICE_TYPES = ["free", "paid"]; 
+const PRICE_TYPES = ["free", "paid"];
 const TITLE_SECTION = [
   "Discover Something New",
   "Fortnite",
@@ -226,14 +223,14 @@ export default function GameAdminPanel() {
         const err = await res.text();
         throw new Error(err);
       }
-      await fetchGames(); 
+      await fetchGames();
       resetForm();
       setEditingId(null);
       alert(editingId ? "Game updated!" : "Game added!");
     } catch (error) {
       console.error("Save error:", error);
     }
-  }; 
+  };
   const handleEdit = (game: GameItem) => {
     console.log("Editing game:", game);
     setFormData({
@@ -443,7 +440,7 @@ export default function GameAdminPanel() {
                 </CardTitle>
                 <CardDescription className="text-text-clr-light">
                   Fill in the game details
-                </CardDescription> 
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Basic Info */}
@@ -639,7 +636,7 @@ export default function GameAdminPanel() {
                     </div>
 
                     {/* ✅ Show previews */}
-                                                        
+
                     {Array.isArray(formData.screenshots) &&
                       formData.screenshots.length > 0 && (
                         <div className="flex gap-2 flex-wrap">
@@ -890,11 +887,10 @@ export default function GameAdminPanel() {
                       <div
                         key={platform}
                         onClick={() => togglePlatform(platform)}
-                        className={` cursor-pointer text-[12px] text-center p-1 rounded-full ${
-                          formData.platforms.includes(platform)
+                        className={` cursor-pointer text-[12px] text-center p-1 rounded-full ${formData.platforms.includes(platform)
                             ? "bg-btn-primary text-black"
                             : "bg-app text-text-clr-light"
-                        }`}
+                          }`}
                       >
                         {platform}
                       </div>
@@ -910,11 +906,10 @@ export default function GameAdminPanel() {
                       <div
                         key={genre}
                         onClick={() => toggleGenre(genre)}
-                        className={`cursor-pointer text-[12px] text-center p-1 rounded-full ${
-                          formData.genres.includes(genre)
+                        className={`cursor-pointer text-[12px] text-center p-1 rounded-full ${formData.genres.includes(genre)
                             ? "bg-btn-primary text-black "
                             : "bg-app text-text-clr-light"
-                        }`}
+                          }`}
                       >
                         {genre}
                       </div>
